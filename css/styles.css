@@ -1,0 +1,19 @@
+textarea {
+    resize: none;
+    width: 300px;
+    height: 200px;
+}
+
+
+
+#startLang {
+    margin-right: 270px;
+
+}
+
+
+
+#dialect {
+    margin-left: 24px;
+}
+
