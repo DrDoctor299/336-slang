@@ -1,7 +1,8 @@
 $(document).ready(function() {
     
     $("#startMessage").on("change keyup" ,function() {
-        var delay = 200;
+        var delay = 500;
+        var timer;
         $.ajax({
             type: "GET",
             url: "getTranslation.php",
@@ -12,7 +13,8 @@ $(document).ready(function() {
                   
             success: function(data,status) {
                 console.log(data);
-                setTimeout(function () {
+                window.clearTimeout(timer);
+                timer = window.setTimeout(function () {
                     $("#resultMessage").val(data.rawTranslatedText.text);
                 }, delay);
                 
