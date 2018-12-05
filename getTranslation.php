@@ -9,7 +9,7 @@ use Google\Cloud\Translate\TranslateClient;
 
 # Your Google Cloud Platform project ID
 $projectId = 'my-project-1543956958092';
-putenv('GOOGLE_APPLICATION_CREDENTIALS=./composer/vendor/google/credentials/credentials.json');
+putenv('GOOGLE_APPLICATION_CREDENTIALS=./credentials/credentials.json');
 # Instantiates a client
 $translate = new TranslateClient([
     'projectId' => $projectId
