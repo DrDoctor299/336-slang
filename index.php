@@ -29,8 +29,8 @@
           <select id="resultLang"><option>English</option></select>
           <select id="dialect"><option>Dialect</option></select>
           <br>
-          <textarea id="startMessage"></textarea>
-          <textarea id="resultMessage"></textarea>
+          <textarea id="startMessage" maxlength=250></textarea>
+          <textarea id="resultMessage" maxlength=250></textarea>
         </form>
     </body>
 </html>

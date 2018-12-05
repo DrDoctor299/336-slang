@@ -1,6 +1,7 @@
 $(document).ready(function() {
     
-    $("#startMessage").on("input" ,function() {
+    $("#startMessage").on("change keyup" ,function() {
+        var delay = 200;
         $.ajax({
             type: "GET",
             url: "getTranslation.php",
@@ -11,7 +12,10 @@ $(document).ready(function() {
                   
             success: function(data,status) {
                 console.log(data);
-                $("#resultMessage").val(data.rawTranslatedText.text);
+                setTimeout(function () {
+                    $("#resultMessage").val(data.rawTranslatedText.text);
+                }, delay);
+                
             }
         });
     });
