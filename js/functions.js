@@ -11,6 +11,7 @@ $(document).ready(function() {
                 dataType: "json",
                 data: {
                         "message": $("#sourceMessage").val(),
+                        "sourceLang": langMap[$("#sourceLang").val()],
                         "targetLang": langMap[$("#targetLang").val()]
                 },
                       
