@@ -21,7 +21,7 @@ textarea {
 }
 
 #signupDiv {
-    display: none;
+    display: inline-block;
     font-weight: bold;
     background-color: silver;
     border-radius: 5px;

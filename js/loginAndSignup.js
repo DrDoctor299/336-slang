@@ -59,7 +59,7 @@ $(document).ready(function() {
                     console.log(data);
                     // If successful signup, "redirect" to login screen
                     if(data.success) {
-                        $("#signupDiv").hide();
+                        $("#signupDiv").css("display", "none");
                         $("#signupPrompt").show();
                         $("#loginDiv").show();
                         $("#loginLink a").attr("class", "nav-link active")
