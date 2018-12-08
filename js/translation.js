@@ -1,6 +1,11 @@
+/* 
+* 
+* Translation Core
+*
+*/
+
 $(document).ready(function() {
     var langMap = new Array();
-    
     // Translate left textbox contents and output to right
     var updateTranslation = function() {
         var delay = 500;
@@ -35,10 +40,14 @@ $(document).ready(function() {
             $.each(data, function(index, val) {
                $("#sourceLang").append("<option>" + val.name + "</option>");
                $("#targetLang").append("<option>" + val.name + "</option>");
+               $("#contributeLang").append("<option>" + val.name + "</option>");
+               $("#slangLang").append("<option>" + val.name + "</option>");
                langMap[val.name] = val.code;
             });
             $("#sourceLang").val("English");
             $("#targetLang").val("English");
+            $("#contributeLang").val("English");
+            $("#slangLang").val("English");
         }
         
     });
@@ -53,16 +62,10 @@ $(document).ready(function() {
         }
     });
     
-    // Update translation when target language is changed
-    $("#targetLang").on("change" , function() {
+    // Update translation when selection boxes change
+    $("#targetLang, #sourceLang").on("change" , function() {
          updateTranslation();
     });
-    
-    // Update translation when target language is changed
-    $("#sourceLang").on("change" , function() {
-         updateTranslation();
-    });
-    
     
 });
     

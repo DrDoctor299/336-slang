@@ -4,6 +4,75 @@ textarea {
     height: 200px;
 }
 
+#homePage {
+    display: none;
+}
+
+#slangPage {
+    display: none;
+}
+
+#contributePage {
+    display: none;
+}
+
+#signupPrompt {
+    display: none;
+}
+
+#signupDiv {
+    display: none;
+    font-weight: bold;
+    background-color: silver;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px 80px 20px 80px;
+    font-weight: bold;
+}
+
+#contributeBox {
+    display: inline-block;
+    background-color: silver;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    font-weight: bold;
+    
+}
+
+#loginDiv {
+    margin-top: 20px;
+    display: none;
+    background-color: silver;
+    border-radius: 5px;
+    padding: 10px 80px 20px 80px;
+    font-weight: bold;
+}
+
+#loginDiv input {
+    width: 100%;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+#contributeButton {
+    width: 25%;
+}
+
+#createButton {
+    width: auto;
+}
+
+#contributeDialect {
+    margin-bottom: 20px;
+}
+
+#trySignupButton {
+    width: auto;
+}
+
 
 
 
