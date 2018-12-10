@@ -32,11 +32,13 @@ $(document).ready(function() {
                     $("#signupPrompt").hide();
                     $("#loginDiv").css("display", "none");
                     $("#loginLink a").html("Logout");
+                    $("#contributeLink").show();
                 }
                 else {
                     $("#signupPrompt").show();
                     $("#loginDiv").css("display", "inline-block");
                     $("#loginLink a").html("Login");
+                    $("#contributeLink").css("display", "none");
                     
                 }
             }

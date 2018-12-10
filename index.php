@@ -20,7 +20,7 @@ include "checkSupportedLanguages.php";
 
     </head>
     
-    <body style="text-align: center">
+    <body onload="checkLoggedIn()" style="text-align: center">
         <?php include "nav.php" ?>
         <!-- Homepage -->
         <div id="homePage">
