@@ -15,6 +15,7 @@ include "checkSupportedLanguages.php";
         <script language="javascript" type="text/javascript" src="js/navigation.js"></script>
         <script language="javascript" type="text/javascript" src="js/translation.js"></script>
         <script language="javascript" type="text/javascript" src="js/slang.js"></script>
+        <script language="javascript" type="text/javascript" src="js/contribution.js"></script>
         <script language="javascript" type="text/javascript" src="js/loginAndSignup.js"></script>
 
     </head>
@@ -58,18 +59,29 @@ include "checkSupportedLanguages.php";
                 ?>
                 <!--<div class="supportedLanguages"></div>-->
               </select>
-              <input type="text" placeholder="First Language Pair"></input>
-              <input type="text" placeholder="Second Language Pair"></input>
-              Second Language: <select id="contributeLang">
-                <option id>Select Language...</option>
-                <?php
-                foreach(getSupportedLanguages() as $lang) {
-                  echo "<option>".$lang."</option>";
-                }
-                ?>
-                <!--<div class="supportedLanguages"></div>-->
+              <input id="contributeTextOne" type="text" placeholder="First Language Pair"></input>
+                Language: <select id="contributeLangOne">
+                  <option>Select Language...</option>
+                  <?php
+                  foreach(getSupportedLanguages() as $lang) {
+                    echo "<option>".$lang."</option>";
+                  }
+                  ?>
+                  <!--<div class="supportedLanguages"></div>-->
+                </select>
+                Dialect: <input type="text" id="contributeDialectOne" value="Standard"></input>
+                <br><img id="downArrow" src="img/down.png" alt="downArrow"/><br>
+                <input id="contributeTextTwo" type="text" placeholder="Second Language Pair"></input>
+                Language: <select id="contributeLangTwo">
+                  <option id>Select Language...</option>
+                  <?php
+                  foreach(getSupportedLanguages() as $lang) {
+                    echo "<option>".$lang."</option>";
+                  }
+                  ?>
+                  <!--<div class="supportedLanguages"></div>-->
               </select>
-              Dialect: <input type="text" id="contributeDialect" value="Standard"></input>
+              Dialect: <input type="text" id="contributeDialectTwo" value="Standard"></input>
               <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
           </div>
           <div class="contributeBox">
