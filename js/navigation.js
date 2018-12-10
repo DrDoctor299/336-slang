@@ -6,6 +6,7 @@
 
 $(document).ready(function() {
     var url = window.location.href.substring(window.location.href.indexOf('#')+1);
+    var loggedIn = false;
     
     var hideAll = function() {
         $("#homePage").hide();
@@ -31,8 +32,9 @@ $(document).ready(function() {
                 if(data.success) {
                     $("#signupPrompt").hide();
                     $("#loginDiv").css("display", "none");
+                    $("#contributeLink").css("display", "inline-block");
                     $("#loginLink a").html("Logout");
-                    $("#contributeLink").show();
+                    loggedIn = true;
                 }
                 else {
                     $("#signupPrompt").show();
@@ -75,7 +77,7 @@ $(document).ready(function() {
         showSlang();
     }
     // go to contribute page
-    else if(url=="Contribute") {
+    else if(url=="Contribute" && loggedIn) {
         showContribute();
     }
     // go to login page
@@ -114,6 +116,7 @@ $(document).ready(function() {
                     $("#loginUsername").val("");
                     $("#loginPassword").val("");
                     $("#contributeLink").css("display", "none");
+                    loggedIn = false;
                     showLogin();
                     
                 }
