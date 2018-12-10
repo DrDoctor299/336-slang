@@ -97,7 +97,13 @@ $(document).ready(function() {
     });
     //contribute page click
      $("#contributeLink").on("click", function() {
-         showContribute();
+        showContribute();
+        $.ajax({
+            type: "get",
+            url: "../getUserContributions.php",
+            
+            
+        });
     });
     //login page click
      $("#loginLink").on("click", function() {
