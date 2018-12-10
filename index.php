@@ -32,6 +32,7 @@ include "checkSupportedLanguages.php";
         </div>
         
         <!-- Slang -->
+        <!--TODO on search : total number of results, total unique users, total number of contributions in the search results made by current user (or something else for people not logged in)-->
         <div id="slangPage">
           <h1>All Slang</h1>
             Search:  <input type="text" id="slangSearch"></input> 

@@ -111,12 +111,17 @@ $(document).ready(function() {
                     data[i].language1 + " (" + data[i].dialect1 + "): " + data[i].phrase1
                     + " <--> " 
                     + data[i][7] + " (" + data[i].dialect2 + "): " + data[i].phrase2 
-                    + "<a class='removeCont' value='" + data[i].contributionID + "'>Delete</a>" 
-                    + "<a class='editCont' value=" + data[i].contributionID + "'>Edit</a>"
+                    //TODO change links to be styled as buttons instead
+                    + " <a class='removeCont' value='" + data[i].contributionID + "'>Delete</a>" 
+                    + " <a class='editCont' value='" + data[i].contributionID + "'>Edit</a>"
                     + "</li>");
                 }
                 $("#displayUserContributions").append("</ul>");
                 $(".removeCont").click(function() {
+                    $.ajax({
+                        type: "get",
+                        url: "./deleteUserContribut/ion.php",
+                    })
                     console.log("Deleting contribution with id: " + $(this).attr("value"));
                 });
                 $(".editCont").click(function() {
