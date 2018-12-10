@@ -20,20 +20,7 @@ include "checkSupportedLanguages.php";
     </head>
     
     <body style="text-align: center">
-        <ul class="nav nav-tabs justify-content-end">
-          <li class="nav-item" id="homeLink" >
-            <a class="nav-link active" href="#home">Home</a>
-          </li>
-          <li class="nav-item" id="slangLink">
-            <a class="nav-link" href="#Slang">Slang</a>
-          </li>
-          <li class="nav-item" id="contributeLink">
-            <a class="nav-link" href="#Contribute">Contribute</a>
-          </li>
-           <li class="nav-item" id="loginLink">
-            <a class="nav-link" href="#Login">Login</a>
-          </li>
-        </ul>
+        <?php include "nav.php" ?>
         <!-- Homepage -->
         <div id="homePage">
           <img src="img/logo.png" alt="logo"><br><br>
@@ -51,7 +38,7 @@ include "checkSupportedLanguages.php";
             Search:  <input type="text" id="slangSearch"></input> 
             Language: <select id="slangLang">
             </select>
-            Dialect: <select name="slangDialect">
+            Dialect: <select name="slangDialect"><option>All</option><option>Standard</option>
             </select> <br/>
             ORDER: 
             <input type="radio" value="newest-first"> Newest first
@@ -82,7 +69,7 @@ include "checkSupportedLanguages.php";
                 ?>
                 <!--<div class="supportedLanguages"></div>-->
               </select>
-              Dialect: <input type="text" id="contributeDialect"></input>
+              Dialect: <input type="text" id="contributeDialect" value="Standard"></input>
               <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
           </div>
         </div>

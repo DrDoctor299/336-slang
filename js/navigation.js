@@ -15,7 +15,7 @@ $(document).ready(function() {
         $("#contributePage").hide();
         $("#contributeLink a").attr("class", "nav-link")
         $("#loginDiv").css("display", "none");
-        $("#signupDiv").attr("display", "none");
+        $("#signupDiv").css("display", "none");
         $("#signupPrompt").hide();
         $("#loginLink a").css("class", "nav-link")
     };
@@ -64,8 +64,6 @@ $(document).ready(function() {
         $("#loginErrorMessage").css("display", "none");
         $("#signupDiv").css("display", "none");
         $("#loginLink a").css("class", "nav-link active")
-        
-        
     }
     
     //Redirect to proper page

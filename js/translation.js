@@ -29,7 +29,6 @@ $(document).ready(function() {
                 }
             });
     }
-    
     // Populate selectable languages
     $.ajax({
         type: "GET",
@@ -40,13 +39,15 @@ $(document).ready(function() {
             $.each(data, function(index, val) {
                $("#sourceLang").append("<option>" + val.name + "</option>");
                $("#targetLang").append("<option>" + val.name + "</option>");
-               $("#contributeLang").append("<option>" + val.name + "</option>");
+               $("#contributeLangSource").append("<option>" + val.name + "</option>");
+               $("#contributeLangTarget").append("<option>" + val.name + "</option>");
                $("#slangLang").append("<option>" + val.name + "</option>");
                langMap[val.name] = val.code;
             });
             $("#sourceLang").val("English");
             $("#targetLang").val("English");
-            $("#contributeLang").val("English");
+            $("#contributeLangSource").val("English");
+            $("#contributeLangTarget").val("English");
             $("#slangLang").val("English");
         }
         

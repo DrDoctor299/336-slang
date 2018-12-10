@@ -21,7 +21,7 @@ textarea {
 }
 
 #signupDiv {
-    display: none;
+    display: inline-block;
     font-weight: bold;
     background-color: silver;
     border-radius: 5px;
@@ -76,6 +76,10 @@ textarea {
 #loginErrorMessage {
     display: none;
     color: red;
+}
+
+#contributeTextSource {
+    margin-right: 10px;
 }
 
 /*Contribute link must be hidden until login*/
