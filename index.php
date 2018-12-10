@@ -74,7 +74,7 @@ include "checkSupportedLanguages.php";
               <input type="text" placeholder="First Language Pair"></input>
               <input type="text" placeholder="Second Language Pair"></input>
               Second Language: <select id="contributeLang">
-                <option>Select Language...</option>
+                <option id>Select Language...</option>
                 <?php
                 foreach(getSupportedLanguages() as $lang) {
                   echo "<option>".$lang."</option>";
