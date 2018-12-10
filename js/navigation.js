@@ -99,7 +99,29 @@ $(document).ready(function() {
     });
     //contribute page click
      $("#contributeLink").on("click", function() {
-         showContribute();
+        showContribute();
+        $.ajax({
+            type: "get",
+            url: "./getUserContributions.php",
+            // datatype: "application/json",
+            success: function(data) {
+                console.log(data);
+                $("#displayUserContributions").html("<ul>");
+                for(var i = 0; i < data.length; i++) {
+                    // $("#displayUserContributions").append();
+                    $("#displayUserContributions").append("<li>" + 
+                    data[i].language1 + " (" + data[i].dialect1 + "): " + data[i].phrase1
+                    + " <--> " 
+                    + data[i][6] + " (" + data[i].dialect2 + "): " + data[i].phrase2 + "</li>");
+                }
+                $("#displayUserContributions").append("</ul>");
+                // <li>English(American Standard): Sup' -- Japanese(Standard): Yo</li>
+            },
+            fail: function(status) {
+                console.log(status);
+            }
+            
+        });
     });
     //login page click
      $("#loginLink").on("click", function() {

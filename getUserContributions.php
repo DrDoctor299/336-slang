@@ -3,21 +3,32 @@
 session_start();
 include "db/database.php";
 
+
 $dbConn = getDatabaseConnection();
     
-$sql = "SELECT users.username, `language`.`language` as language1, dialect.dialect as dialect1, contributions.phrase1" + 
-" FROM contributions JOIN `users` ON users.userID = contributions.userID" + 
-" JOIN `language` ON contributions.language1=`language`.`id`" + 
-" JOIN `dialect` ON contributions.dialect1=`dialect`.`id`" + 
-" WHERE users.username = 'josh'";
+$sql = "SELECT users.username, `language`.`language` as language1, contributions.dialect1, contributions.dialect2, contributions.phrase1, contributions.phrase2".
+" FROM contributions JOIN `users` ON users.userID = contributions.userID".
+" JOIN `language` ON contributions.language1=`language`.`id`".
+" WHERE users.username = '".$_SESSION["username"]."'";
 
-print_r($sql);
-
-// .$_SESSION["username"]
 $statement = $dbConn->prepare($sql); 
 $statement->execute(); 
-//results contain username, language1, dialect1, and phrase1
-$recordsSide1 = $statement->fetchAll();
+//results contain username, language1, dialect1, dialect2, phrase1, phrase2,
+$records = $statement->fetchAll();
+$sql = "SELECT `language`.`language` as language2".
+" FROM contributions JOIN `users` ON users.userID = contributions.userID".
+" JOIN `language` ON contributions.language2 =`language`.`id`".
+" WHERE users.username = '".$_SESSION["username"]."'";
 
+$statement = $dbConn->prepare($sql); 
+$statement->execute(); 
+//results contain language2
+$recordsSide2 = $statement->fetchAll();
+for ($i = 0; $i < count($records); $i++) {
+    array_push($records[$i], $recordsSide2[$i][0]);
+}
+
+header('Content-Type: application/json');
+echo json_encode($records);
 
 ?>

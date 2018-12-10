@@ -30,7 +30,7 @@ textarea {
     font-weight: bold;
 }
 
-#contributeBox {
+.contributeBox {
     display: inline-block;
     background-color: silver;
     border: 1px solid black;
