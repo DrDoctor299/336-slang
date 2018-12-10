@@ -15,7 +15,6 @@ include "checkSupportedLanguages.php";
         <script language="javascript" type="text/javascript" src="js/slang.js"></script>
         <script language="javascript" type="text/javascript" src="js/contribution.js"></script>
         <script language="javascript" type="text/javascript" src="js/loginAndSignup.js"></script>
-
     </head>
     
     <body onload="checkLoggedIn()" style="text-align: center">
