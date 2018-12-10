@@ -120,7 +120,15 @@ $(document).ready(function() {
                 $(".removeCont").click(function() {
                     $.ajax({
                         type: "get",
-                        url: "./deleteUserContribut/ion.php",
+                        url: "./deleteUserContribution.php",
+                        datatype: "application/json",
+                        data: {"id": $(this).attr("value")},
+                        success: function(data) {
+                            console.log(data);
+                        },
+                        fail: function(status) {
+                            console.log(status);
+                        }
                     })
                     console.log("Deleting contribution with id: " + $(this).attr("value"));
                 });
