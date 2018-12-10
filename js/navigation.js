@@ -18,7 +18,7 @@ $(document).ready(function() {
         $("#signupDiv").attr("display", "none");
         $("#signupPrompt").hide();
         $("#loginLink a").css("class", "nav-link")
-    }
+    };
     
     var checkLoggedIn = function() {
         $.ajax({
@@ -61,6 +61,7 @@ $(document).ready(function() {
     var showLogin = function () {
         hideAll();
         checkLoggedIn();
+        $("#loginErrorMessage").css("display", "none");
         $("#signupDiv").css("display", "none");
         $("#loginLink a").css("class", "nav-link active")
         
@@ -103,6 +104,7 @@ $(document).ready(function() {
         // When clicked, if text = logout then the user will be logged out
         if($("#loginLink a").text()=="Login")
             showLogin();
+            
         else {
             $.ajax({
                 type: "GET",
@@ -111,6 +113,7 @@ $(document).ready(function() {
                 complete: function() {
                     $("#loginUsername").val("");
                     $("#loginPassword").val("");
+                    $("#contributeLink").css("display", "none");
                     showLogin();
                     
                 }

@@ -31,11 +31,12 @@ $(document).ready(function() {
                         $("#signupPrompt").hide();
                         $("#loginDiv").css("display", "none");
                         $("#loginLink a").html("Logout");
+                        $("#contributeLink").show();
                         $("#homePage").show();
                         $("#homeLink a").attr("class", "nav-link active")
                     }
                     else {
-                           // Output username invalid
+                        $("#loginErrorMessage").show();
                     }
                 }
             });     

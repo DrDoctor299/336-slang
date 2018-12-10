@@ -73,6 +73,12 @@ textarea {
     width: auto;
 }
 
+#loginErrorMessage {
+    display: none;
+    color: red;
+}
 
-
-
+/*Contribute link must be hidden until login*/
+#contributeLink {
+    display: none;
+}

@@ -1,3 +1,9 @@
+<?php
+
+include "checkSupportedLanguages.php";
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -56,9 +62,26 @@
         <div id="contributePage">
           <h1>Make a Contribution</h1>
           <div id="contributeBox">
-              <input type="text" placeholder="Original Text"></input>
-              <input type="text" placeholder="Desired Text"></input>
-              Language: <select id="contributeLang"></select>
+              First Language: <select>
+                <option>Select Language...</option>
+                <?php
+                foreach(getSupportedLanguages() as $lang) {
+                  echo "<option>".$lang."</option>";
+                }
+                ?>
+                <!--<div class="supportedLanguages"></div>-->
+              </select>
+              <input type="text" placeholder="First Language Pair"></input>
+              <input type="text" placeholder="Second Language Pair"></input>
+              Second Language: <select id="contributeLang">
+                <option>Select Language...</option>
+                <?php
+                foreach(getSupportedLanguages() as $lang) {
+                  echo "<option>".$lang."</option>";
+                }
+                ?>
+                <!--<div class="supportedLanguages"></div>-->
+              </select>
               Dialect: <input type="text" id="contributeDialect"></input>
               <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
           </div>
@@ -69,6 +92,7 @@
           <!-- By default -->
           <div id="loginDiv">
             <h1>Log In</h1><br>
+            <div id="loginErrorMessage">The information doesn't match our records</div>
             <input type="text" id="loginUsername" placeholder="Enter Username"></input><br>
             <input type="password" id="loginPassword" placeholder="Enter Password"></input> <br><br>
             <button id="tryLoginButton" type="button" class="btn btn-primary btn-lg">Login</button>
