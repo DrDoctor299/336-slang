@@ -124,7 +124,7 @@ $(document).ready(function() {
                         datatype: "application/json",
                         data: {"id": $(this).attr("value")},
                         success: function(data) {
-                            console.log(data);
+                            $('#contributeLink').trigger('click');
                         },
                         fail: function(status) {
                             console.log(status);
@@ -133,6 +133,11 @@ $(document).ready(function() {
                     console.log("Deleting contribution with id: " + $(this).attr("value"));
                 });
                 $(".editCont").click(function() {
+                    //show modal and populate fields with old values
+                    
+                    $.ajax({
+                        //call edit.php which deletes/inserts new record
+                    })
                     console.log("Editing contribution with id: " + $(this).attr("value"));
                 });
             },

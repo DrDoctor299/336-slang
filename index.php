@@ -49,8 +49,6 @@ include "checkSupportedLanguages.php";
         <div id="contributePage">
           <h1>Make a Contribution</h1>
           <div class="contributeBox">
-                <!--<div class="supportedLanguages"></div>-->
-              </select>
               <input id="contributeTextOne" type="text" placeholder="First Language Pair"></input>
                 Language: <select id="contributeLangOne">
                   <option id="contributeLangOneDefault">Select Language...</option>
@@ -59,7 +57,6 @@ include "checkSupportedLanguages.php";
                     echo "<option>".$lang."</option>";
                   }
                   ?>
-                  <!--<div class="supportedLanguages"></div>-->
                 </select>
                 Dialect: <input type="text" id="contributeDialectOne" value="Standard"></input>
                 <br><img id="downArrow" src="img/down.png" alt="downArrow"/><br>
@@ -71,12 +68,52 @@ include "checkSupportedLanguages.php";
                     echo "<option>".$lang."</option>";
                   }
                   ?>
-                  <!--<div class="supportedLanguages"></div>-->
               </select>
               Dialect: <input type="text" id="contributeDialectTwo" value="Standard"></input><br>
               <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
           </div> <br>
           <div class="contributeBox" id="displayUserContributions"></div>
+        </div>
+        <!--Contribute edit modal-->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content" id="editModal">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Contribution</h4>
+              </div>
+              <div class="modal-body">
+                <input id="editTextOne" type="text" placeholder="First Language Pair"></input>
+                Language: <select id="editLangOne">
+                  <option id="editLangOneDefault">Select Language...</option>
+                  <?php
+                  foreach(getSupportedLanguages() as $lang) {
+                    echo "<option>".$lang."</option>";
+                  }
+                  ?>
+                </select>
+                Dialect: <input type="text" id="editDialectOne" value="Standard"></input>
+                <br><img id="downArrow" src="img/down.png" alt="downArrow"/><br>
+                <input id="editTextTwo" type="text" placeholder="Second Language Pair"></input>
+                Language: <select id="editLangTwo">
+                  <option id="editLangTwoDefault">Select Language...</option>
+                  <?php
+                  foreach(getSupportedLanguages() as $lang) {
+                    echo "<option>".$lang."</option>";
+                  }
+                  ?>
+              </select>
+              Dialect: <input type="text" id="editDialectTwo" value=""></input><br>
+              <button id="editButton" type="button" class="btn btn-primary btn-lg">Submit Edit</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+        
+          </div>
         </div>
         
         <!-- Login -->
