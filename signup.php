@@ -15,7 +15,7 @@
     else {
       $ret["success"] = true;
       $sql = "INSERT INTO users (userID, username, password) 
-              VALUES (NULL, '". $_GET["sentUsername"] ."', '".$_GET["sentPassword"]."')";
+              VALUES (NULL, '". $_GET["sentUsername"] ."', '".sha1($_GET["sentPassword"])."')";
       
       $statement = $dbConn->prepare($sql); 
       $statement->execute(); 

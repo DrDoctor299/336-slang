@@ -2,9 +2,8 @@
     include "db/database.php";
     $ret = array();
     $dbConn = getDatabaseConnection();
-    
     // Check if username exists already
-    $sql = "SELECT * FROM users WHERE username = '".$_GET["sentUsername"] ."' AND password = '".$_GET['sentPassword'] ."'";
+    $sql = "SELECT * FROM users WHERE username = '".$_GET["sentUsername"] ."' AND password = '".sha1($_GET['sentPassword'])."'";
     $statement = $dbConn->prepare($sql); 
     $statement->execute(); 
     $records = $statement->fetchAll();
@@ -17,8 +16,8 @@
     }
     // Invalid credentials
     else {
-       
+        $ret["success"] = false;
+        echo json_encode($ret);
     }
-        
     
 ?>
