@@ -11,6 +11,7 @@
        session_start();
        $_SESSION["username"]=$_GET["sentUsername"]; 
        $_SESSION["password"]=$_GET["sentPassword"];
+       $_SESSION["userID"]=$records[0]["userID"];
        $ret["success"] = true;
        echo json_encode($ret);
     }

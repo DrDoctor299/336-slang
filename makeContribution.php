@@ -1,22 +1,33 @@
 <?php
-// INCOMPLETE
-
     include 'db/database.php';
     
+   
+    
+    session_start();
     $ret = array();
     $dbConn = getDatabaseConnection();
-    $sql = "INSERT INTO Contributions (word, convertedWord, languageCode, dialect, userID, contributionID)
-            VALUES" .$S . ;
+    // Get Language Codes
+    $sql = "SELECT * FROM language WHERE language='".$_GET['language1']."';";
     $statement = $dbConn->prepare($sql); 
     $statement->execute(); 
     $records = $statement->fetchAll(); 
-        
-    $ret["age"] = 2018 - intval($records[0]['yob']);
-    $ret["breed"] = $records[0]["breed"];
-    $ret["desc"] = $records[0]["description"];
-    $ret["img"] = "img/" . $records[0]["pictureURL"];
-        
-    return $ret;
+    $lang1 = $records[0]["id"];
+    
+    $sql = "SELECT * FROM language WHERE language='".$_GET['language2']."';";
+    $statement = $dbConn->prepare($sql); 
+    $statement->execute(); 
+    $records = $statement->fetchAll(); 
+    $lang2 = $records[0]["id"];
+    
+    // Make Contribution
+    $sql = "INSERT INTO contributions (contributionID, userID, language1, language2, 
+                                        dialect1, dialect2, phrase1, phrase2)
+                            VALUES (NULL, '".$_SESSION["userID"]."', '$lang1', '$lang2', 
+                                    '".$_GET["dialect1"]."', '".$_GET["dialect2"]."', '".$_GET["phrase1"]."', '".$_GET["phrase2"]."');";
+    echo $sql;
+    $statement = $dbConn->prepare($sql); 
+    $statement->execute(); 
+ 
          
-    echo json_encode(;
+   
 ?>
