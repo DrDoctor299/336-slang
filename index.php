@@ -74,10 +74,8 @@ include "checkSupportedLanguages.php";
               </select>
               Dialect: <input type="text" id="contributeDialectTwo" value="Standard"></input><br>
               <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
-          </div>
-          <div class="contributeBox">
-            
-          </div>
+          </div> <br>
+          <div class="contributeBox" id="displayUserContributions"></div>
         </div>
         
         <!-- Login -->
