@@ -129,7 +129,7 @@ $(document).ready(function() {
                         fail: function(status) {
                             console.log(status);
                         }
-                    })
+                    });
                     console.log("Deleting contribution with id: " + $(this).attr("value"));
                 });
                 $(".editCont").click(function() {

@@ -53,7 +53,7 @@ include "checkSupportedLanguages.php";
               </select>
               <input id="contributeTextOne" type="text" placeholder="First Language Pair"></input>
                 Language: <select id="contributeLangOne">
-                  <option>Select Language...</option>
+                  <option id="contributeLangOneDefault">Select Language...</option>
                   <?php
                   foreach(getSupportedLanguages() as $lang) {
                     echo "<option>".$lang."</option>";
@@ -65,7 +65,7 @@ include "checkSupportedLanguages.php";
                 <br><img id="downArrow" src="img/down.png" alt="downArrow"/><br>
                 <input id="contributeTextTwo" type="text" placeholder="Second Language Pair"></input>
                 Language: <select id="contributeLangTwo">
-                  <option id>Select Language...</option>
+                  <option id="contributeLangTwoDefault">Select Language...</option>
                   <?php
                   foreach(getSupportedLanguages() as $lang) {
                     echo "<option>".$lang."</option>";

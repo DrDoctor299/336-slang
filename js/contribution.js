@@ -7,6 +7,7 @@
 $(document).ready(function() {
     
     $("#contributeButton").on("click" , function() {
+        console.log("Button clicked");
         $.ajax({
            type:"GET",
            url: "makeContribution.php",
@@ -20,9 +21,18 @@ $(document).ready(function() {
                "phrase1": $("#contributeTextOne").val(),
                "phrase2": $("#contributeTextTwo").val(),
            },
-           
+           success: function(data) {
+               console.log(data);
+           },
            complete: function(data, status) {
-               //Clear out input and update the contributions being shown
+                //Clear out input and update the contributions being shown
+                $("#contributeLangOneDefault").attr('selected', true);
+                $("#contributeLangTwoDefault").attr('selected', true);
+                $("#contributeDialectOne").val("Standard");
+                $("#contributeDialectTwo").val("Standard");
+                $("#contributeTextOne").val("");
+                $("#contributeTextTwo").val("");
+                $('#contributeLink').trigger('click');
            }
            
             
