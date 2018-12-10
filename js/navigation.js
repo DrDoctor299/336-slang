@@ -103,19 +103,25 @@ $(document).ready(function() {
         $.ajax({
             type: "get",
             url: "./getUserContributions.php",
-            // datatype: "application/json",
             success: function(data) {
                 console.log(data);
                 $("#displayUserContributions").html("<ul>");
                 for(var i = 0; i < data.length; i++) {
-                    // $("#displayUserContributions").append();
                     $("#displayUserContributions").append("<li>" + 
                     data[i].language1 + " (" + data[i].dialect1 + "): " + data[i].phrase1
                     + " <--> " 
-                    + data[i][6] + " (" + data[i].dialect2 + "): " + data[i].phrase2 + "</li>");
+                    + data[i][7] + " (" + data[i].dialect2 + "): " + data[i].phrase2 
+                    + "<a class='removeCont' value='" + data[i].contributionID + "'>Delete</a>" 
+                    + "<a class='editCont' value=" + data[i].contributionID + "'>Edit</a>"
+                    + "</li>");
                 }
                 $("#displayUserContributions").append("</ul>");
-                // <li>English(American Standard): Sup' -- Japanese(Standard): Yo</li>
+                $(".removeCont").click(function() {
+                    console.log("Deleting contribution with id: " + $(this).attr("value"));
+                });
+                $(".editCont").click(function() {
+                    console.log("Editing contribution with id: " + $(this).attr("value"));
+                });
             },
             fail: function(status) {
                 console.log(status);
