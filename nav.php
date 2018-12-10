@@ -7,7 +7,10 @@ echo '<ul class="nav nav-tabs justify-content-end">';
     echo'<li class="nav-item" id="slangLink">';
         echo'<a class="nav-link" href="#Slang">Slang</a>';
     echo '</li>';
-    echo '<li class="nav-item" id="contributeLink">';
+    if(empty($_SESSION['username']))
+        echo '<li class="nav-item" id="contributeLink" style="display: none">';
+    else
+        echo '<li class="nav-item" id="contributeLink">';
         echo'<a class="nav-link" href="#Contribute">Contribute</a>';
     echo'</li>';
     echo'<li class="nav-item" id="loginLink">';

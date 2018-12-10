@@ -1,7 +1,5 @@
 <?php
-
 include "checkSupportedLanguages.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -50,13 +48,6 @@ include "checkSupportedLanguages.php";
         <div id="contributePage">
           <h1>Make a Contribution</h1>
           <div class="contributeBox">
-              First Language: <select>
-                <option>Select Language...</option>
-                <?php
-                foreach(getSupportedLanguages() as $lang) {
-                  echo "<option>".$lang."</option>";
-                }
-                ?>
                 <!--<div class="supportedLanguages"></div>-->
               </select>
               <input id="contributeTextOne" type="text" placeholder="First Language Pair"></input>
@@ -81,7 +72,7 @@ include "checkSupportedLanguages.php";
                   ?>
                   <!--<div class="supportedLanguages"></div>-->
               </select>
-              Dialect: <input type="text" id="contributeDialectTwo" value="Standard"></input>
+              Dialect: <input type="text" id="contributeDialectTwo" value="Standard"></input><br>
               <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
           </div>
           <div class="contributeBox">
