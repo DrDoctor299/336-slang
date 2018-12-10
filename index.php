@@ -48,7 +48,7 @@ include "checkSupportedLanguages.php";
         <!-- Contribute -->
         <div id="contributePage">
           <h1>Make a Contribution</h1>
-          <div id="contributeBox">
+          <div class="contributeBox">
               First Language: <select>
                 <option>Select Language...</option>
                 <?php
@@ -71,6 +71,9 @@ include "checkSupportedLanguages.php";
               </select>
               Dialect: <input type="text" id="contributeDialect" value="Standard"></input>
               <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
+          </div>
+          <div class="contributeBox">
+            
           </div>
         </div>
         
