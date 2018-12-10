@@ -28,6 +28,7 @@ for ($i = 0; $i < count($records); $i++) {
     array_push($records[$i], $recordsSide2[$i][0]);
 }
 
+header('Content-Type: application/json');
 echo json_encode($records);
 
 ?>

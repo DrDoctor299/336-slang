@@ -102,8 +102,14 @@ $(document).ready(function() {
         showContribute();
         $.ajax({
             type: "get",
-            url: "../getUserContributions.php",
-            
+            url: "./getUserContributions.php",
+            // datatype: "application/json",
+            success: function(data) {
+                console.log(data);
+            },
+            fail: function(status) {
+                console.log(status);
+            }
             
         });
     });
