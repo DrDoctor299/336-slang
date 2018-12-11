@@ -75,13 +75,11 @@
               </div>
               <div class="modal-body">
                 <input id="editTextOne" type="text" placeholder="First Language Pair"></input>
-                Language: <select id="editLangOne">
-                </select>
+                Language: <select id="editLangOne"></select>
                 Dialect: <input type="text" id="editDialectOne" value="Standard"></input>
                 <br><img id="downArrow" src="img/down.png" alt="downArrow"/><br>
                 <input id="editTextTwo" type="text" placeholder="Second Language Pair"></input>
-                Language: <select id="editLangTwo">
-                </select>
+                Language: <select id="editLangTwo"></select>
                 Dialect: <input type="text" id="editDialectTwo" value="Standard"></input><br>
                 <button id="editButton" type="button" class="btn btn-primary btn-lg">Submit Edit</button>
               </div>

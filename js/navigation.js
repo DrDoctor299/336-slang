@@ -143,7 +143,8 @@ $(document).ready(function() {
                         //show modal and populate fields with old values
                         success: function(data) {
                             console.log(data);
-                            //TODO adjust language selector based on result
+                            $("#editLangOne").prop('selectedIndex', (data[0].langID1 - 1));
+                            $("#editLangTwo").prop('selectedIndex', (data[0].langID2 - 1));
                             $("#editTextOne").attr("value", data[0].phrase1);
                             $("#editTextTwo").attr("value", data[0].phrase2);
                             $("#editDialectOne").attr("value", data[0].dialect1);
@@ -165,11 +166,11 @@ $(document).ready(function() {
                             "textTwo": $("#editTextTwo").val(),
                             "dialectOne": $("#editDialectOne").val(),
                             "dialectTwo": $("#editDialectTwo").val(),
-                            "langOne": $("#editLangOne").val(),
-                            "langTwo": $("#editLangTwo").val()},
+                            "langOne": $("#editLangOne").attr("value"),
+                            "langTwo": $("#editLangTwo").attr("value")},
                             success: function(data) {
                                 console.log(data);
-                                $('#contributeLink').trigger('click');
+                                // $('#contributeLink').trigger('click');
                             },
                             fail: function(status) {
                                 console.log(status);
