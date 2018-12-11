@@ -36,14 +36,15 @@
         <!--TODO on search : total number of results, total unique users, total number of contributions in the search results made by current user (or something else for people not logged in)-->
         <div id="slangPage">
           <h1>All Slang</h1>
+            <div id="aggData"></div>
             Search:  <input type="text" id="slangSearch"></input> 
-            Language: <select id="slangLang">
-            </select>
-            Dialect: <select name="slangDialect"><option>All</option><option>Standard</option>
+            Language: <select id="slangLang"><option value="">Select Language...</option></select>
+            Dialect: <input type="text" id="dialectSearch">
             </select> <br/>
             ORDER: 
-            <input type="radio" value="newest-first"> Newest first
-            <input type="radio" value="oldest-first"> Oldest first <br/>
+            <input id="orderByUser" type="radio" value="user"> User
+            <input id="orderByLang" type="radio" value="lang"> Language <br/>
+            <div id="results"></div>
         </div>
         
         <!-- Contribute -->
