@@ -134,10 +134,10 @@ $(document).ready(function() {
                 });
                 $(".editCont").click(function() {
                     //show modal and populate fields with old values
-                    
+                    $('#editModal').modal('toggle');
                     $.ajax({
                         //call edit.php which deletes/inserts new record
-                    })
+                    });
                     console.log("Editing contribution with id: " + $(this).attr("value"));
                 });
             },

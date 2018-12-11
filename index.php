@@ -7,9 +7,14 @@ include "checkSupportedLanguages.php";
     <head>
         <title>Google Slang</title>
         <meta charset="UTF-8">
+        <!--Jquery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--bootstrap js and css-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <!--custom css-->
         <link rel="stylesheet" href = "css/styles.css">
+        <!--all custom js-->
         <script language="javascript" type="text/javascript" src="js/navigation.js"></script>
         <script language="javascript" type="text/javascript" src="js/translation.js"></script>
         <script language="javascript" type="text/javascript" src="js/slang.js"></script>
@@ -74,7 +79,7 @@ include "checkSupportedLanguages.php";
           </div> <br>
           <div class="contributeBox" id="displayUserContributions"></div>
         </div>
-        <!--Contribute edit modal-->
+        <!--Contributons edit modal-->
         <div id="editModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
         
@@ -104,9 +109,9 @@ include "checkSupportedLanguages.php";
                     echo "<option>".$lang."</option>";
                   }
                   ?>
-              </select>
-              Dialect: <input type="text" id="editDialectTwo" value=""></input><br>
-              <button id="editButton" type="button" class="btn btn-primary btn-lg">Submit Edit</button>
+                </select>
+                Dialect: <input type="text" id="editDialectTwo" value=""></input><br>
+                <button id="editButton" type="button" class="btn btn-primary btn-lg">Submit Edit</button>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

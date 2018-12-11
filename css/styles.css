@@ -91,3 +91,23 @@ a {
     cursor: pointer;
     color: blue;
 }
+
+
+/*Neccessary CSS to override css in the 4.0 bootstrap CSS which was breaking the modal*/
+.fade.in {
+  opacity: 1;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.modal-backdrop .fade .in {
+  opacity: 0.5 !important;
+}
+
+
+.modal-backdrop.fade {
+    opacity: 0.5 !important;
+}
