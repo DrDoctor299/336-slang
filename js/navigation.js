@@ -132,6 +132,7 @@ $(document).ready(function() {
                     });
                     console.log("Deleting contribution with id: " + $(this).attr("value"));
                 });
+                //clicked "edit" for one of the contributions"
                 $(".editCont").click(function() {
                     //Call getUserContributions.php to retrieve the single contribution information needed to fill the edit form
                     $.ajax({
@@ -154,26 +155,33 @@ $(document).ready(function() {
                         }
                     });
                     //call editUserContribution.php which updates a record
-                    $.ajax({
-                        type: "post",
-                        url: "./editUserContribution.php",
-                        datatype: "application/json",
-                        data: {"id": $(this).attr("value"),
-                        "textOne": $("#editTextOne").val(),
-                        "textTwo": $("#editTextTwo").val(),
-                        "dialectOne": $("#editDialectOne").val(),
-                        "dialectTwo": $("#editDialectTwo").val(),
-                        "langOne": $("#editLangOne").val(),
-                        "langTwo": $("#editLangTwo").val()},
-                        success: function(data) {
-                            console.log(data);
-                        },
-                        fail: function(status) {
-                            console.log(status);
-                        }
+                    $("#editButton").click(function() {
+                        $.ajax({
+                            type: "post",
+                            url: "./editUserContribution.php",
+                            datatype: "application/json",
+                            data: {"id": $(this).attr("value"),
+                            "textOne": $("#editTextOne").val(),
+                            "textTwo": $("#editTextTwo").val(),
+                            "dialectOne": $("#editDialectOne").val(),
+                            "dialectTwo": $("#editDialectTwo").val(),
+                            "langOne": $("#editLangOne").val(),
+                            "langTwo": $("#editLangTwo").val()},
+                            success: function(data) {
+                                console.log(data);
+                                $('#contributeLink').trigger('click');
+                            },
+                            fail: function(status) {
+                                console.log(status);
+                            }
+                        });    
                     });
+                    
                     console.log("Editing contribution with id: " + $(this).attr("value"));
                 });
+                
+                
+                
             },
             fail: function(status) {
                 console.log(status);

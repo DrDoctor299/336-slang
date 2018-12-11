@@ -4,7 +4,7 @@ session_start();
 include "db/database.php";
 $dbConn = getDatabaseConnection();
 
-
+//retrieves one contribution by id (if passed an id)
 if(isset($_POST["id"])) {
     $sql = "SELECT contributions.contributionID, users.username, `language`.`language` as language1, contributions.dialect1, contributions.dialect2, contributions.phrase1, contributions.phrase2".
     " FROM contributions JOIN `users` ON users.userID = contributions.userID".
@@ -26,6 +26,7 @@ if(isset($_POST["id"])) {
     $recordsSide2 = $statement->fetchAll();
     array_push($records[0], $recordsSide2[0][0]);
 } 
+//passes all contributions back from the currently logged in user
 else {
 
     $sql = "SELECT contributions.contributionID, users.username, `language`.`language` as language1, contributions.dialect1, contributions.dialect2, contributions.phrase1, contributions.phrase2".
