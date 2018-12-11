@@ -1,4 +1,6 @@
 <?php
+include "db/database.php";
+
 $output = array();
 
 # Includes the autoloader for libraries installed with composer

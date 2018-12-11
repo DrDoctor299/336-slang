@@ -11,6 +11,7 @@ $projectId = 'my-project-1543956958092';
 putenv('GOOGLE_APPLICATION_CREDENTIALS=./credentials/credentials.json');
 
 $translate = new TranslateClient();
+
 foreach ($translate->localizedLanguages() as $lang) {
     $output[] = $lang;
 }

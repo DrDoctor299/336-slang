@@ -5,7 +5,6 @@
 */
 
 $(document).ready(function() {
-    
     $("#contributeButton").on("click" , function() {
         console.log("Button clicked");
         $.ajax({
