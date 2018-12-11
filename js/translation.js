@@ -28,7 +28,7 @@ $(document).ready(function() {
                     
                 }
             });
-    }
+    };
     // Populate selectable languages
     $.ajax({
         type: "GET",
@@ -36,13 +36,14 @@ $(document).ready(function() {
         dataType: "json",
         
         success: function(data, status) {
+            console.log(data);
             $.each(data, function(index, val) {
                $("#sourceLang").append("<option>" + val.name + "</option>");
                $("#targetLang").append("<option>" + val.name + "</option>");
                $("#contributeLangOne").append("<option>" + val.name + "</option>");
                $("#contributeLangTwo").append("<option>" + val.name + "</option>");
-               $("#editLangOne").append("<option>" + val.name + "</option>");
-               $("#editLangTwo").append("<option>" + val.name + "</option>");
+               $("#editLangOne").append("<option value='" + (index+1) + "'>" + val.name + "</option>");
+               $("#editLangTwo").append("<option value='" + (index+1) + "'>" + val.name + "</option>");
                $("#slangLang").append("<option>" + val.name + "</option>");
                langMap[val.name] = val.code;
             });
@@ -54,7 +55,6 @@ $(document).ready(function() {
         }
         
     });
-    
     // Change right textbox as left one changes
     $("#sourceMessage").on("change keyup" ,function() {
         if($("#sourceLang").val() == $("#targetLang").val() || !$.trim($("#sourceLang").val())) {
