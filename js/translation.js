@@ -41,6 +41,8 @@ $(document).ready(function() {
                $("#targetLang").append("<option>" + val.name + "</option>");
                $("#contributeLangOne").append("<option>" + val.name + "</option>");
                $("#contributeLangTwo").append("<option>" + val.name + "</option>");
+               $("#editLangOne").append("<option>" + val.name + "</option>");
+               $("#editLangTwo").append("<option>" + val.name + "</option>");
                $("#slangLang").append("<option>" + val.name + "</option>");
                langMap[val.name] = val.code;
             });

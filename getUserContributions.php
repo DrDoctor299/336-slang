@@ -6,7 +6,7 @@ include "db/database.php";
 
 $dbConn = getDatabaseConnection();
     
-$sql = "SELECT users.username, `language`.`language` as language1, contributions.dialect1, contributions.dialect2, contributions.phrase1, contributions.phrase2".
+$sql = "SELECT contributions.contributionID, users.username, `language`.`language` as language1, contributions.dialect1, contributions.dialect2, contributions.phrase1, contributions.phrase2".
 " FROM contributions JOIN `users` ON users.userID = contributions.userID".
 " JOIN `language` ON contributions.language1=`language`.`id`".
 " WHERE users.username = '".$_SESSION["username"]."'";

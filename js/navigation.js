@@ -99,7 +99,53 @@ $(document).ready(function() {
     });
     //contribute page click
      $("#contributeLink").on("click", function() {
-         showContribute();
+        showContribute();
+        $.ajax({
+            type: "get",
+            url: "./getUserContributions.php",
+            success: function(data) {
+                console.log(data);
+                $("#displayUserContributions").html("<ul>");
+                for(var i = 0; i < data.length; i++) {
+                    $("#displayUserContributions").append("<li>" + 
+                    data[i].language1 + " (" + data[i].dialect1 + "): " + data[i].phrase1
+                    + " <--> " 
+                    + data[i][7] + " (" + data[i].dialect2 + "): " + data[i].phrase2 
+                    //TODO change links to be styled as buttons instead
+                    + " <a class='removeCont' value='" + data[i].contributionID + "'>Delete</a>" 
+                    + " <a class='editCont' value='" + data[i].contributionID + "'>Edit</a>"
+                    + "</li>");
+                }
+                $("#displayUserContributions").append("</ul>");
+                $(".removeCont").click(function() {
+                    $.ajax({
+                        type: "get",
+                        url: "./deleteUserContribution.php",
+                        datatype: "application/json",
+                        data: {"id": $(this).attr("value")},
+                        success: function(data) {
+                            $('#contributeLink').trigger('click');
+                        },
+                        fail: function(status) {
+                            console.log(status);
+                        }
+                    });
+                    console.log("Deleting contribution with id: " + $(this).attr("value"));
+                });
+                $(".editCont").click(function() {
+                    //show modal and populate fields with old values
+                    $('#editModal').modal('toggle');
+                    $.ajax({
+                        //call edit.php which deletes/inserts new record
+                    });
+                    console.log("Editing contribution with id: " + $(this).attr("value"));
+                });
+            },
+            fail: function(status) {
+                console.log(status);
+            }
+            
+        });
     });
     //login page click
      $("#loginLink").on("click", function() {

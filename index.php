@@ -1,11 +1,17 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Google Slang</title>
         <meta charset="UTF-8">
+        <!--Jquery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--bootstrap js and css-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <!--custom css-->
         <link rel="stylesheet" href = "css/styles.css">
+        <!--all custom js-->
         <script language="javascript" type="text/javascript" src="js/navigation.js"></script>
         <script language="javascript" type="text/javascript" src="js/translation.js"></script>
         <script language="javascript" type="text/javascript" src="js/slang.js"></script>
@@ -27,6 +33,7 @@
         </div>
         
         <!-- Slang -->
+        <!--TODO on search : total number of results, total unique users, total number of contributions in the search results made by current user (or something else for people not logged in)-->
         <div id="slangPage">
           <h1>All Slang</h1>
             Search:  <input type="text" id="slangSearch"></input> 
@@ -43,8 +50,6 @@
         <div id="contributePage">
           <h1>Make a Contribution</h1>
           <div class="contributeBox">
-                <!--<div class="supportedLanguages"></div>-->
-              </select>
               <input id="contributeTextOne" type="text" placeholder="First Language Pair"></input>
                 Language: <select id="contributeLangOne">
                 </select>
@@ -57,6 +62,35 @@
               <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
           </div> <br>
           <div class="contributeBox" id="displayUserContributions"></div>
+        </div>
+        <!--Contributons edit modal-->
+        <div id="editModal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Edit Contribution</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <input id="editTextOne" type="text" placeholder="First Language Pair"></input>
+                Language: <select id="editLangOne">
+                </select>
+                Dialect: <input type="text" id="editDialectOne" value="Standard"></input>
+                <br><img id="downArrow" src="img/down.png" alt="downArrow"/><br>
+                <input id="editTextTwo" type="text" placeholder="Second Language Pair"></input>
+                Language: <select id="editLangTwo">
+                </select>
+                Dialect: <input type="text" id="editDialectTwo" value="Standard"></input><br>
+                <button id="editButton" type="button" class="btn btn-primary btn-lg">Submit Edit</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+        
+          </div>
         </div>
         
         <!-- Login -->
