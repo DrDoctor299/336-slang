@@ -58,6 +58,7 @@ textarea {
 }
 
 #contributeButton {
+    margin-top: 1.5em;
     width: 25%;
 }
 
@@ -92,6 +93,10 @@ a {
     color: blue;
 }
 
+#editButton {
+    margin-top: 1.5em;
+    max-width: 150px;
+}
 
 /*Neccessary CSS to override css in the 4.0 bootstrap CSS which was breaking the modal*/
 .fade.in {
