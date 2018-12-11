@@ -104,7 +104,6 @@ $(document).ready(function() {
             type: "get",
             url: "./getUserContributions.php",
             success: function(data) {
-                console.log(data);
                 $("#displayUserContributions").html("<ul>");
                 for(var i = 0; i < data.length; i++) {
                     $("#displayUserContributions").append("<li>" + 
@@ -130,11 +129,11 @@ $(document).ready(function() {
                             console.log(status);
                         }
                     });
-                    console.log("Deleting contribution with id: " + $(this).attr("value"));
                 });
-                //clicked "edit" for one of the contributions"
+                //clicked "edit" for one of the contributions
                 $(".editCont").click(function() {
                     //Call getUserContributions.php to retrieve the single contribution information needed to fill the edit form
+                    $("#editButton").data("contributionID", $(this).attr("value"));
                     $.ajax({
                         type: "post",
                         url: "./getUserContributions.php",
@@ -142,7 +141,6 @@ $(document).ready(function() {
                         data: {"id": $(this).attr("value")},
                         //show modal and populate fields with old values
                         success: function(data) {
-                            console.log(data);
                             $("#editLangOne").prop('selectedIndex', (data[0].langID1 - 1));
                             $("#editLangTwo").prop('selectedIndex', (data[0].langID2 - 1));
                             $("#editTextOne").attr("value", data[0].phrase1);
@@ -155,30 +153,30 @@ $(document).ready(function() {
                             console.log(status);
                         }
                     });
+                    //clicked submit edit
                     //call editUserContribution.php which updates a record
                     $("#editButton").click(function() {
                         $.ajax({
                             type: "post",
                             url: "./editUserContribution.php",
                             datatype: "application/json",
-                            data: {"id": $(this).attr("value"),
+                            data: {"id": $("#editButton").data("contributionID"),
                             "textOne": $("#editTextOne").val(),
                             "textTwo": $("#editTextTwo").val(),
                             "dialectOne": $("#editDialectOne").val(),
                             "dialectTwo": $("#editDialectTwo").val(),
-                            "langOne": $("#editLangOne").attr("value"),
-                            "langTwo": $("#editLangTwo").attr("value")},
+                            "langOne": $("#editLangOne").val(),
+                            "langTwo": $("#editLangTwo").val()},
                             success: function(data) {
                                 console.log(data);
-                                // $('#contributeLink').trigger('click');
+                                $('#contributeLink').trigger('click');
+                                $('#editModal').modal('toggle');
                             },
                             fail: function(status) {
                                 console.log(status);
                             }
                         });    
                     });
-                    
-                    console.log("Editing contribution with id: " + $(this).attr("value"));
                 });
                 
                 

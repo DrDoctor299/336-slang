@@ -10,12 +10,12 @@ $sql = "UPDATE `contributions` SET".
 " WHERE contributionID = '".$_POST["id"]."'";
 
 
-// $statement = $dbConn->prepare($sql); 
-// $statement->execute(); 
+$statement = $dbConn->prepare($sql); 
+$statement->execute(); 
 //TODO link language options with langID's in dropdown to submit to DB
 // $records = $statement->fetchAll();
 
-header('Content-Type: application/json');
-echo json_encode($sql);
+// header('Content-Type: application/json');
+// echo json_encode($sql);
 
 ?>
