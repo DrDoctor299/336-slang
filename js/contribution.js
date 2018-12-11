@@ -5,7 +5,6 @@
 */
 
 $(document).ready(function() {
-    
     $("#contributeButton").on("click" , function() {
         $.ajax({
            type:"GET",

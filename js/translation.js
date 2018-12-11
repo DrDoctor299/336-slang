@@ -39,15 +39,15 @@ $(document).ready(function() {
             $.each(data, function(index, val) {
                $("#sourceLang").append("<option>" + val.name + "</option>");
                $("#targetLang").append("<option>" + val.name + "</option>");
-               $("#contributeLangSource").append("<option>" + val.name + "</option>");
-               $("#contributeLangTarget").append("<option>" + val.name + "</option>");
+               $("#contributeLangOne").append("<option>" + val.name + "</option>");
+               $("#contributeLangTwo").append("<option>" + val.name + "</option>");
                $("#slangLang").append("<option>" + val.name + "</option>");
                langMap[val.name] = val.code;
             });
             $("#sourceLang").val("English");
             $("#targetLang").val("English");
-            $("#contributeLangSource").val("English");
-            $("#contributeLangTarget").val("English");
+            $("#contributeLangOne").val("English");
+            $("#contributeLangTwo").val("English");
             $("#slangLang").val("English");
         }
         

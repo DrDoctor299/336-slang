@@ -1,7 +1,3 @@
-<?php
-include "checkSupportedLanguages.php";
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -51,25 +47,11 @@ include "checkSupportedLanguages.php";
               </select>
               <input id="contributeTextOne" type="text" placeholder="First Language Pair"></input>
                 Language: <select id="contributeLangOne">
-                  <option>Select Language...</option>
-                  <?php
-                  foreach(getSupportedLanguages() as $lang) {
-                    echo "<option>".$lang."</option>";
-                  }
-                  ?>
-                  <!--<div class="supportedLanguages"></div>-->
                 </select>
                 Dialect: <input type="text" id="contributeDialectOne" value="Standard"></input>
                 <br><img id="downArrow" src="img/down.png" alt="downArrow"/><br>
                 <input id="contributeTextTwo" type="text" placeholder="Second Language Pair"></input>
                 Language: <select id="contributeLangTwo">
-                  <option id>Select Language...</option>
-                  <?php
-                  foreach(getSupportedLanguages() as $lang) {
-                    echo "<option>".$lang."</option>";
-                  }
-                  ?>
-                  <!--<div class="supportedLanguages"></div>-->
               </select>
               Dialect: <input type="text" id="contributeDialectTwo" value="Standard"></input><br>
               <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
