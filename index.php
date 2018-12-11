@@ -26,7 +26,7 @@
           <img src="img/logo.png" alt="logo"><br><br>
             <select id="sourceLang"></select>
             <select id="targetLang"></select>
-            <select id="dialect"><option>Dialect</option></select>
+            <select id="dialect"><option value="">Dialect</option><option>Standard</option></select>
             <br>
             <textarea id="sourceMessage" maxlength=250></textarea>
             <textarea id="targetMessage" disabled="true"></textarea>
