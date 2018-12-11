@@ -17,8 +17,8 @@ $(document).ready(function() {
                "language2": $("#contributeLangTwo").val(),
                "dialect1": $("#contributeDialectOne").val(),
                "dialect2": $("#contributeDialectTwo").val(),
-               "phrase1": $("#contributeTextOne").val(),
-               "phrase2": $("#contributeTextTwo").val(),
+               "phrase1": $("#contributeTextOne").val().toLowerCase(),
+               "phrase2": $("#contributeTextTwo").val().toLowerCase(),
            },
            success: function(data) {
                console.log(data);

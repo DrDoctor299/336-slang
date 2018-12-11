@@ -1,8 +1,6 @@
 <?php
     include 'db/database.php';
     
-   
-    
     session_start();
     $ret = array();
     $dbConn = getDatabaseConnection();
