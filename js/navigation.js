@@ -109,11 +109,11 @@ $(document).ready(function() {
                 for(var i = 0; i < data.length; i++) {
                     $("#displayUserContributions").append("<li>" + 
                     data[i].language1 + " (" + data[i].dialect1 + "): " + data[i].phrase1
-                    + " <--> " 
+                    + "<p class='arrowBorder'> <--> </p>" 
                     + data[i][7] + " (" + data[i].dialect2 + "): " + data[i].phrase2 
                     //TODO change links to be styled as buttons instead
-                    + " <a class='removeCont' value='" + data[i].contributionID + "'>Delete</a>" 
-                    + " <a class='editCont' value='" + data[i].contributionID + "'>Edit</a>"
+                    + " <a style='width: 80px; color: white; margin-left: 10px' role='button' class='btn btn-primary removeCont' value='" + data[i].contributionID + "'>Delete</a>" 
+                    + " <a style='width: 80px; color: white; margin-right: -10px' role='button' class='btn btn-primary editCont' value='" + data[i].contributionID + "'>Edit</a>"
                     + "</li>");
                 }
                 $("#displayUserContributions").append("</ul>");

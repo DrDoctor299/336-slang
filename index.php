@@ -29,6 +29,10 @@
             <select id="dialect"><option value="">Dialect</option><option>Standard</option></select>
             <br>
             <textarea id="sourceMessage" maxlength=250></textarea>
+            <div id="images">
+              <img id="rightArrow" src="img/right.png" alt="rightArrow" />
+              <img id="swapArrows" src="img/swap.png" alt="swapArrows" />
+            </div>
             <textarea id="targetMessage" disabled="true"></textarea>
         </div>
         
