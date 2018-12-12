@@ -23,17 +23,35 @@ function buildSQL($option) {
     else if($option == "count") {
         if($_POST["slang"] != "") {
             //if slang search
-            $sql = "SELECT count(T.contributionID) AS totalResults FROM 
-                        (SELECT contributionID, users.username, language1, language2, dialect1, dialect2, phrase1, phrase2, language.language as lang1plaintext 
+            $sql = "SELECT COUNT(`T`.`userID`) AS count FROM 
+                        (SELECT contributionID, `users`.`userID`, language1, language2, dialect1, dialect2, phrase1, phrase2, language.language as lang1plaintext 
                         FROM contributions JOIN `users` ON users.userID = contributions.userID JOIN `language` ON contributions.language1=`language`.`id` 
                         WHERE phrase1 LIKE '%".$_POST["slang"]."%' OR phrase2 LIKE '%".$_POST["slang"]."%'";    
         }
         else {
             //if no slang search
-            $sql = "SELECT count(T.contributionID) AS totalResults FROM 
-                        (SELECT contributionID, users.username, language1, language2, dialect1, dialect2, phrase1, phrase2, language.language as lang1plaintext 
+            $sql = "SELECT COUNT(`T`.`userID`) AS count FROM 
+                        (SELECT contributionID, `users`.`userID`, language1, language2, dialect1, dialect2, phrase1, phrase2, language.language as lang1plaintext 
                         FROM contributions JOIN `users` ON users.userID = contributions.userID JOIN `language` ON contributions.language1=`language`.`id` 
                         WHERE 1";
+        }
+    }
+    else if($option == "users") {
+        if($_POST["slang"] != "") {
+            //if slang search
+            $sql = "SELECT COUNT(`T2`.`contributionID`) AS count FROM
+                        (SELECT `T`.`contributionID`, `T`.`userID` FROM
+                            (SELECT contributionID, `users`.`userID`, language1, language2, dialect1, dialect2, phrase1, phrase2, language.language as lang1plaintext 
+                            FROM contributions JOIN `users` ON users.userID = contributions.userID JOIN `language` ON contributions.language1=`language`.`id` 
+                            WHERE phrase1 LIKE '%".$_POST["slang"]."%' OR phrase2 LIKE '%".$_POST["slang"]."%'";    
+        }
+        else {
+            //if no slang search
+            $sql = "SELECT COUNT(`T2`.`contributionID`) AS count FROM
+                        (SELECT `T`.`contributionID`, `T`.`userID` FROM
+                            (SELECT contributionID, `users`.`userID`, language1, language2, dialect1, dialect2, phrase1, phrase2, language.language as lang1plaintext 
+                            FROM contributions JOIN `users` ON users.userID = contributions.userID JOIN `language` ON contributions.language1=`language`.`id` 
+                            WHERE 1";
         }
     }
     
@@ -49,26 +67,44 @@ function buildSQL($option) {
     else {
         $sql .= " ORDER BY language1";
     }
+
     
     $sql .= ") AS T JOIN language ON T.language2 = language.id";
+    
+    if($option == "users") {
+        $sql .= " GROUP BY `T`.`userID`) AS T2";
+    }    
     
     return $sql;
 }
 
-
+//query the DB for the search results
 $statement = $dbConn->prepare(buildSQL("search")); 
 $statement->execute(); 
 $records = $statement->fetchAll();
 
+//query the DB for the number of results
 $statement = $dbConn->prepare(buildSQL("count")); 
 $statement->execute(); 
 $countArray = $statement->fetchAll();
+
+//add total results to the returning json object
+$records["totalResults"] = $countArray[0]["count"];
+
+//query the DB for the number of unique users contributing to results
+$statement = $dbConn->prepare(buildSQL("users")); 
+$statement->execute(); 
+$usersArray = $statement->fetchAll();
  
-$records["totalResults"] = $countArray[0]["totalResults"];
+//add the total number of unique users (usersCount)
+$records["usersCount"] = $usersArray[0]["count"];
+
+//add length property
+$records["length"] = count($records) - 2;
 
 header('Content-Type: application/json');
 echo json_encode($records);
 
-// echo $sql;
+// echo buildSQL("users");
 
 ?>

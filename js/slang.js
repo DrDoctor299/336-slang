@@ -38,13 +38,13 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data);
                 $("#results").html("");
-                $.each(data, function(index, val) {
+                for(var i = 0; i < data.length; i++) {
                     $("#results").append("<li>" + 
-                    val.username + "  |  " + val.lang1plaintext + " (" + val.dialect1 + "): " + val.phrase1
+                    data[i].username + "  |  " + data[i].lang1plaintext + " (" + data[i].dialect1 + "): " + data[i].phrase1
                     + " <--> " 
-                    + val.lang2plaintext + " (" + val.dialect2 + "): " + val.phrase2 
+                    + data[i].lang2plaintext + " (" + data[i].dialect2 + "): " + data[i].phrase2 
                     + "</li>");
-                });
+                }
             },
             fail: function(status) {
                 console.log(status);
