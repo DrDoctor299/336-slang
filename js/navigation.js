@@ -164,7 +164,7 @@ $(document).ready(function() {
     // go to slang page
     if(url=="Slang") {
         showSlang();
-        search();
+        
     }
     // go to contribute page
     else if(url=="Contribute" && $("#loginLink").text()=="Logout") {
@@ -185,7 +185,7 @@ $(document).ready(function() {
          showHome();
     });
     //slang page click
-     $("#slangLink").on("click", function() {
+    $("#slangLink").on("click", function() {
          showSlang();
     });
     //contribute page click

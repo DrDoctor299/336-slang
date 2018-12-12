@@ -106,20 +106,17 @@ $usersArray = $statement->fetchAll();
 $records["usersCount"] = $usersArray[0]["count"];
 
 //query the DB for the number of contributes from the user (if the user is logged in)
-if(session_status() == PHP_SESSION_ACTIVE) {
+if(isset($_SESSION["userID"])) {
     $statement = $dbConn->prepare(buildSQL("loggedin")); 
     $statement->execute(); 
     $loggedinArray = $statement->fetchAll();    
-}
-
-//add the total number contributions made by logged in user (loggedinCount)
-$records["loggedinCount"] = $loggedinArray[0]["count"];
-
-//add length property
-if(session_status() == PHP_SESSION_ACTIVE) {
+    //add the total number contributions made by logged in user (loggedinCount)
+    $records["loggedinCount"] = $loggedinArray[0]["count"];
+    //add length property
     $records["length"] = count($records) - 3;
 }
 else {
+    //add length property if user is not logged in
     $records["length"] = count($records) - 2;
 }
 

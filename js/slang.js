@@ -24,11 +24,14 @@ $(document).ready(function() {
         order = $(this).attr("id");
         search();
     });
+    $("#slangLink").on("click", function() {
+        search();
+    });
     
     function search() {
         $.ajax({
             type: "post",
-            url: "./search.php",
+            url: "search.php",
             datatype: "application/json",
             data: {"slang": $("#slangSearch").val(),
             "lang": $("#slangLang").val(),
@@ -45,9 +48,16 @@ $(document).ready(function() {
                     + data[i].lang2plaintext + " (" + data[i].dialect2 + "): " + data[i].phrase2 
                     + "</li>");
                 }
-                $("#resultsMetadata").html("Number of results: " + data["totalResults"] + 
-                "<br>Number of unique contributors in search results: " + data["usersCount"] + 
-                "<br>Number of result contributed by you: " + data["loggedinCount"]);
+                if(data["loggedinCount"]) {
+                    $("#resultsMetadata").html("Number of results: " + data["totalResults"] + 
+                    "<br>Number of unique contributors in search results: " + data["usersCount"] + 
+                    "<br>Number of result contributed by you: " + data["loggedinCount"]);
+                }
+                else {
+                    $("#resultsMetadata").html("Number of results: " + data["totalResults"] + 
+                    "<br>Number of unique contributors in search results: " + data["usersCount"]);
+                }
+                
             },
             fail: function(status) {
                 console.log(status);
