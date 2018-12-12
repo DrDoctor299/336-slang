@@ -31,6 +31,7 @@ textarea {
 }
 
 .contributeBox {
+    text-align: left;
     display: inline-block;
     background-color: silver;
     border: 1px solid black;

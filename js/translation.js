@@ -48,7 +48,7 @@ $(document).ready(function() {
                $("#contributeLangTwo").append("<option>" + val.name + "</option>");
                $("#editLangOne").append("<option value='" + (index+1) + "'>" + val.name + "</option>");
                $("#editLangTwo").append("<option value='" + (index+1) + "'>" + val.name + "</option>");
-               $("#slangLang").append("<option>" + val.name + "</option>");
+               $("#slangLang").append("<option value='" + (index+1) + "'>" + val.name + "</option>");
                langMap[val.name] = val.code;
             });
             // Populate slang dropdowns
@@ -60,7 +60,6 @@ $(document).ready(function() {
             $("#targetLang").val("English");
             $("#contributeLangOne").val("English");
             $("#contributeLangTwo").val("English");
-            $("#slangLang").val("English");
         }
         
     });

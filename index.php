@@ -40,14 +40,16 @@
         <!--TODO on search : total number of results, total unique users, total number of contributions in the search results made by current user (or something else for people not logged in)-->
         <div id="slangPage">
           <h1>All Slang</h1>
+            <div id="aggData"></div>
             Search:  <input type="text" id="slangSearch"></input> 
-            Language: <select id="slangLang">
-            </select>
-            Dialect: <select name="slangDialect"><option>All</option><option>Standard</option>
+            Language: <select id="slangLang"><option value="">Select Language...</option></select>
+            Dialect: <input type="text" id="slangDialect">
             </select> <br/>
             ORDER: 
-            <input type="radio" value="newest-first"> Newest first
-            <input type="radio" value="oldest-first"> Oldest first <br/>
+            <input class="slangOrderBy" id="slangByUser" name="order" type="radio"> User
+            <input class="slangOrderBy" id="slangByLang" name="order" type="radio"> Language <br/>
+            <div class="contributeBox" id="results"></div>
+            <div class="contributeBox" id="resultsMetadata"></div>
         </div>
         
         <!-- Contribute -->
@@ -85,7 +87,7 @@
                 <input id="editTextTwo" type="text" placeholder="Second Language Pair"></input>
                 Language: <select id="editLangTwo"></select>
                 Dialect: <input type="text" id="editDialectTwo" value="Standard"></input><br>
-                <button id="editButton" type="button" class="btn btn-primary btn-lg">Submit Edit</button>
+                <button id="editButton" type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Submit Edit</button>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
