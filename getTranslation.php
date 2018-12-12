@@ -7,7 +7,6 @@ use Google\Cloud\Translate\TranslateClient;
 include "db/database.php";
 $output = array();
 if(!empty($_GET["dialect"])) {
-
     $sql = "SELECT
                 phrase1, 
                 phrase2,

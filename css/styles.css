@@ -31,7 +31,7 @@ textarea {
 }
 
 .contributeBox {
-    text-align: left;
+    text-align: center;
     display: inline-block;
     background-color: silver;
     border: 1px solid black;
@@ -86,7 +86,10 @@ textarea {
 
 
 #downArrow{
-    width: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80px;
+    
 }
 
 a {
@@ -97,7 +100,65 @@ a {
 #editButton {
     margin-top: 1.5em;
     max-width: 150px;
+    
 }
+
+#images {
+    display:inline-table;
+    
+}
+
+#rightArrow {
+    width: 100px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: top;
+    display:table-cell;
+   
+    
+}
+
+#swapArrows {
+ display:table-cell;
+ padding-left: 10px;
+ padding-right: 10px;
+ width: 100%;
+ vertical-align: top;
+ opacity: 0.2;
+}
+
+.arrowBorder {
+    display:inline;
+    color: blue;
+    font-weight: bold;
+}
+
+#selectDiv {
+    display:inline-block;
+    width: 46%;
+}
+
+#sourceLang {
+    position: relative;
+    left: 0px;
+}
+
+#leftSide {
+    display: inline-block;
+    text-align: left;
+}
+
+#rightSide {
+    text-align: right;
+    display: inline-block;
+}
+
+
+
+
+
+
 
 /*Neccessary CSS to override css in the 4.0 bootstrap CSS which was breaking the modal*/
 .fade.in {

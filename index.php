@@ -24,12 +24,23 @@
         <!-- Homepage -->
         <div id="homePage">
           <img src="img/logo.png" alt="logo"><br><br>
-            <select id="sourceLang"></select>
+          <div id="leftSide">
+            <select id="sourceLang"></select><br>
+            <textarea id="sourceMessage" maxlength=250></textarea>  
+          </div>
+          <div id="images">
+            <img id="rightArrow" src="img/right.png" alt="rightArrow" />
+            <img id="swapArrows" src="img/swap.png" alt="swapArrows" />
+          </div>
+          <div id="rightSide">
             <select id="targetLang"></select>
-            <select id="dialect"><option value="">Dialect</option><option>Standard</option></select>
-            <br>
-            <textarea id="sourceMessage" maxlength=250></textarea>
+            <select id="dialect"><option value="">Dialect</option><option>Standard</option></select><br>
             <textarea id="targetMessage" disabled="true"></textarea>
+          </div>
+          <br>
+           
+       
+           
         </div>
         
         <!-- Slang -->

@@ -78,5 +78,26 @@ $(document).ready(function() {
          updateTranslation();
     });
     
+    // Emphasize swap button upon hover
+    $("#swapArrows").on("mouseover", function() {
+         $("#swapArrows").css("opacity", "1");
+         $("#swapArrows").css( 'cursor', 'pointer' );
+    });
+    $("#swapArrows").on("mouseout", function() {
+         $("#swapArrows").css("opacity", "0.2");
+         $("#swapArrows").css( 'cursor', 'default' );
+    });
+    
+    // Swap left and right fields upon click
+    $("#swapArrows").on("click", function() {
+        var inputMsg = $("#sourceMessage").val();
+        var inputLang = $("#sourceLang").val();
+        $("#sourceMessage").val($("#targetMessage").val());
+        $("#targetMessage").val(inputMsg);
+        $("#sourceLang").val($("#targetLang").val())
+        $("#targetLang").val(inputLang);
+        updateTranslation();
+    });
+    
 });
     
