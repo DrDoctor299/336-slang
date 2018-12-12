@@ -45,6 +45,9 @@ $(document).ready(function() {
                     + data[i].lang2plaintext + " (" + data[i].dialect2 + "): " + data[i].phrase2 
                     + "</li>");
                 }
+                $("#resultsMetadata").html("Number of results: " + data["totalResults"] + 
+                "<br>Number of unique contributors in search results: " + data["usersCount"] + 
+                "<br>Number of result contributed by you: " + data["loggedinCount"]);
             },
             fail: function(status) {
                 console.log(status);

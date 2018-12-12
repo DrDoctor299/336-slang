@@ -1,7 +1,9 @@
 <?php
 
+session_start();
 include "db/database.php";
 $dbConn = getDatabaseConnection();
+
 
 function buildSQL($option) {
     if($option == "search") {
@@ -20,7 +22,7 @@ function buildSQL($option) {
                         WHERE 1";
         }
     }
-    else if($option == "count") {
+    else if($option == "count" || $option == "loggedin") {
         if($_POST["slang"] != "") {
             //if slang search
             $sql = "SELECT COUNT(`T`.`userID`) AS count FROM 
@@ -55,11 +57,15 @@ function buildSQL($option) {
         }
     }
     
+    
     if($_POST["lang"] != "") {
         $sql .= " AND language1 = '".$_POST["lang"]."' OR language2 = '".$_POST["lang"]."'";
     }
     if($_POST["dialect"] != "") {
         $sql .= " AND dialect1 = '".$_POST["dialect"]."' OR dialect2 = '".$_POST["dialect"]."'";
+    }
+    if($option == "loggedin") {
+        $sql .= " AND `users`.`userID` = '".$_SESSION["userID"]."'";
     }
     if($_POST["order"] == "slangByUser") {
         $sql .= " ORDER BY username";
@@ -99,8 +105,23 @@ $usersArray = $statement->fetchAll();
 //add the total number of unique users (usersCount)
 $records["usersCount"] = $usersArray[0]["count"];
 
+//query the DB for the number of contributes from the user (if the user is logged in)
+if(session_status() == PHP_SESSION_ACTIVE) {
+    $statement = $dbConn->prepare(buildSQL("loggedin")); 
+    $statement->execute(); 
+    $loggedinArray = $statement->fetchAll();    
+}
+
+//add the total number contributions made by logged in user (loggedinCount)
+$records["loggedinCount"] = $loggedinArray[0]["count"];
+
 //add length property
-$records["length"] = count($records) - 2;
+if(session_status() == PHP_SESSION_ACTIVE) {
+    $records["length"] = count($records) - 3;
+}
+else {
+    $records["length"] = count($records) - 2;
+}
 
 header('Content-Type: application/json');
 echo json_encode($records);
