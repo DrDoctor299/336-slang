@@ -134,6 +134,29 @@ a {
     font-weight: bold;
 }
 
+#selectDiv {
+    display:inline-block;
+    width: 46%;
+}
+
+#sourceLang {
+    position: relative;
+    left: 0px;
+}
+
+#leftSide {
+    display: inline-block;
+    text-align: left;
+}
+
+#rightSide {
+    text-align: right;
+    display: inline-block;
+}
+
+
+
+
 
 
 
