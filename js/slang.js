@@ -37,6 +37,14 @@ $(document).ready(function() {
             },
             success: function(data) {
                 console.log(data);
+                $("#results").html("");
+                $.each(data, function(index, val) {
+                    $("#results").append("<li>" + 
+                    val.username + "  |  " + val.lang1plaintext + " (" + val.dialect1 + "): " + val.phrase1
+                    + " <--> " 
+                    + val.lang2plaintext + " (" + val.dialect2 + "): " + val.phrase2 
+                    + "</li>");
+                });
             },
             fail: function(status) {
                 console.log(status);

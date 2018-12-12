@@ -170,7 +170,7 @@ $(document).ready(function() {
                             success: function(data) {
                                 console.log(data);
                                 $('#contributeLink').trigger('click');
-                                // $('#editModal').modal('toggle');
+                                $('#editModal').modal('toggle');
                             },
                             fail: function(status) {
                                 console.log(status);
