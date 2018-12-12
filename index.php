@@ -45,6 +45,7 @@
             <input class="slangOrderBy" id="slangByUser" name="order" type="radio"> User
             <input class="slangOrderBy" id="slangByLang" name="order" type="radio"> Language <br/>
             <div class="contributeBox" id="results"></div>
+            <div class="contributeBox" id="resultsMetadata"></div>
         </div>
         
         <!-- Contribute -->
