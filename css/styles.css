@@ -115,7 +115,6 @@ a {
     padding-right: 10px;
     vertical-align: top;
     display:table-cell;
-   
     
 }
 
@@ -151,10 +150,19 @@ a {
 
 #rightSide {
     text-align: right;
+    vertical-align:top;
     display: inline-block;
 }
 
+#logo {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 650px;
+}
 
+.nav-link {
+   
+}
 
 
 

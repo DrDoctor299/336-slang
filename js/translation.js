@@ -65,10 +65,12 @@ $(document).ready(function() {
     });
     // Change right textbox as left one changes
     $("#sourceMessage").on("change keyup" ,function() {
+        
         if($("#sourceLang").val() == $("#targetLang").val() && !$("#dialect").val() || !$.trim($("#sourceLang").val())) {
             $("#targetMessage").val($("#sourceMessage").val());
         }
         else {
+            $("#rightArrow").css("opacity", "1");
             updateTranslation();
         }
     });
@@ -98,6 +100,7 @@ $(document).ready(function() {
         $("#targetLang").val(inputLang);
         updateTranslation();
     });
+    
     
 });
     

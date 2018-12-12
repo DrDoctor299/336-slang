@@ -23,7 +23,7 @@
         <?php include "nav.php" ?>
         <!-- Homepage -->
         <div id="homePage">
-          <img src="img/logo.png" alt="logo"><br><br>
+          <img id="logo" src="img/logo.png" alt="logo"><br><br>
           <div id="leftSide">
             <select id="sourceLang"></select><br>
             <textarea id="sourceMessage" maxlength=250></textarea>  
@@ -35,12 +35,9 @@
           <div id="rightSide">
             <select id="targetLang"></select>
             <select id="dialect"><option value="">Dialect</option><option>Standard</option></select><br>
-            <textarea id="targetMessage" disabled="true"></textarea>
+            <textarea id="targetMessage" disabled="true"></textarea><br>
+            <img src="img/googleCredit.png" alt="Powered by Google Translate" />
           </div>
-          <br>
-           
-       
-           
         </div>
         
         <!-- Slang -->
