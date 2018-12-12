@@ -65,7 +65,7 @@ $(document).ready(function() {
     });
     // Change right textbox as left one changes
     $("#sourceMessage").on("change keyup" ,function() {
-        
+          $("#rightArrow").css("opacity", "");
         if($("#sourceLang").val() == $("#targetLang").val() && !$("#dialect").val() || !$.trim($("#sourceLang").val())) {
             $("#targetMessage").val($("#sourceMessage").val());
         }

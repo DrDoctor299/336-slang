@@ -19,7 +19,7 @@
         <script language="javascript" type="text/javascript" src="js/loginAndSignup.js"></script>
     </head>
     
-    <body onload="checkLoggedIn()" style="text-align: center">
+    <body style="text-align: center">
         <?php include "nav.php" ?>
         <!-- Homepage -->
         <div id="homePage">
@@ -98,7 +98,6 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
               </div>
             </div>
-        
           </div>
         </div>
         
@@ -119,11 +118,17 @@
           <!-- If user clicks signup -->
           <div id="signupDiv">
             Username: <br>
-            <input type="text" id="signupUsername"></input> <br>
+            <div id="usernameDiv">
+              <div id="usernameErrorMessage">Username Already Exists</div>
+              <input type="text" id="signupUsername"></input><br>  
+            </div>
             Password: <br>
-            <input type="password" id="signupPassword"></input> <br>
-            Retype Password: <br>
-            <input type="password" id="retypedPassword"></input> <br><br>
+            <div id="passwordDiv">
+              <div id="passwordErrorMessage">Password Cannot Be Empty</div>
+              <input type="password" id="signupPassword"></input> <br>
+              Retype Password: <br>
+              <input type="password" id="retypedPassword"></input> <br><br>
+            </div>
             <button id="trySignupButton" type="button" class="btn btn-primary btn-lg">Sign Up</button>
           </div>
         </div>
