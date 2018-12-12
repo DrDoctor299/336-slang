@@ -39,11 +39,11 @@
             <div id="aggData"></div>
             Search:  <input type="text" id="slangSearch"></input> 
             Language: <select id="slangLang"><option value="">Select Language...</option></select>
-            Dialect: <input type="text" id="dialectSearch">
+            Dialect: <input type="text" id="slangDialect">
             </select> <br/>
             ORDER: 
-            <input id="orderByUser" type="radio" value="user"> User
-            <input id="orderByLang" type="radio" value="lang"> Language <br/>
+            <input class="slangOrderBy" id="slangByUser" name="order" type="radio"> User
+            <input class="slangOrderBy" id="slangByLang" name="order" type="radio"> Language <br/>
             <div id="results"></div>
         </div>
         
@@ -82,7 +82,7 @@
                 <input id="editTextTwo" type="text" placeholder="Second Language Pair"></input>
                 Language: <select id="editLangTwo"></select>
                 Dialect: <input type="text" id="editDialectTwo" value="Standard"></input><br>
-                <button id="editButton" type="button" class="btn btn-primary btn-lg">Submit Edit</button>
+                <button id="editButton" type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Submit Edit</button>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
