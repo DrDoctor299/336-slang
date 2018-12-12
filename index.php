@@ -58,7 +58,7 @@
         
         <!-- Contribute -->
         <div id="contributePage">
-          <h1>Make a Contribution</h1>
+          <h1>Make A Contribution</h1>
           <div class="contributeBox">
               <input id="contributeTextOne" type="text" placeholder="First Language Pair"></input>
                 Language: <select id="contributeLangOne">
@@ -71,6 +71,7 @@
               Dialect: <input type="text" id="contributeDialectTwo" value="Standard"></input><br>
               <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
           </div> <br>
+          <h2>Your Contributions</h2>
           <div class="contributeBox" id="displayUserContributions"></div>
         </div>
         <!--Contributons edit modal-->
