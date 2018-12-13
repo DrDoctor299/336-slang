@@ -17,7 +17,7 @@ $(document).ready(function() {
         $("#loginDiv").css("display", "none");
         $("#signupDiv").css("display", "none");
         $("#signupPrompt").hide();
-        $("#loginLink a").css("class", "nav-link")
+        $("#loginLink a").attr("class", "nav-link")
     };
     
     var listContributions = function() {
@@ -156,7 +156,7 @@ $(document).ready(function() {
         checkLoggedIn();
         $("#loginErrorMessage").css("display", "none");
         $("#signupDiv").css("display", "none");
-        $("#loginLink a").css("class", "nav-link active")
+        $("#loginLink a").attr("class", "nav-link active")
     }
     
     //Redirect to proper page

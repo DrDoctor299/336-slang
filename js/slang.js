@@ -24,6 +24,12 @@ $(document).ready(function() {
         order = $(this).attr("id");
         search();
     });
+    // Hide results if nothing in them
+    $("#results").on("DOMSubtreeModified", function() {
+        if($("#results").html()=="")
+            $("#results").css("display", "none");
+    });
+    
     $("#slangLink").on("click", function() {
         search();
     });
@@ -57,6 +63,8 @@ $(document).ready(function() {
                     $("#resultsMetadata").html("Number of results: " + data["totalResults"] + 
                     "<br>Number of unique contributors in search results: " + data["usersCount"]);
                 }
+                if($("#results").html()!="")
+                    $("#results").css("display", "inline-block");
                 
             },
             fail: function(status) {

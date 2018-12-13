@@ -43,7 +43,7 @@
         <!-- Slang -->
         <!--TODO on search : total number of results, total unique users, total number of contributions in the search results made by current user (or something else for people not logged in)-->
         <div id="slangPage">
-          <h1>All Slang</h1>
+          <h1 style="margin-bottom: 20px">All Slang</h1>
             <div id="aggData"></div>
             Search:  <input type="text" id="slangSearch"></input> 
             Language: <select id="slangLang"><option value="">Select Language...</option></select>
@@ -51,7 +51,7 @@
             </select> <br/>
             ORDER: 
             <input class="slangOrderBy" id="slangByUser" name="order" type="radio"> User
-            <input class="slangOrderBy" id="slangByLang" name="order" type="radio"> Language <br/>
+            <input class="slangOrderBy" id="slangByLang" name="order" type="radio"> Language <br/><br/>
             <div class="contributeBox" id="results"></div><br>
             <div class="contributeBox" id="resultsMetadata"></div>
         </div>
@@ -69,7 +69,7 @@
                 Language: <select id="contributeLangTwo">
               </select>
               Dialect: <input type="text" id="contributeDialectTwo" value="Standard"></input><br>
-              <button id="contributeButton" type="button" class="btn btn-primary btn-lg">Contribute</button>
+              <button id="contributeButton" type="button" class="btn btn-success btn-lg">Contribute</button>
           </div> <br>
           <h2>Your Contributions</h2>
           <div class="contributeBox" id="displayUserContributions"></div>
@@ -109,7 +109,7 @@
             <div id="loginErrorMessage">The information doesn't match our records</div>
             <input type="text" id="loginUsername" placeholder="Enter Username"></input><br>
             <input type="password" id="loginPassword" placeholder="Enter Password"></input> <br><br>
-            <button id="tryLoginButton" type="button" class="btn btn-primary btn-lg">Login</button>
+            <button id="tryLoginButton" type="button" class="btn btn-success btn-lg">Login</button>
           </div>
           <div id="signupPrompt">
             <h2>Don't have an account yet?</h2>
