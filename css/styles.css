@@ -228,6 +228,9 @@ a {
 #resultsMetadata {
     display: inline-block;
     font-size: 18px;
+    margin-bottom: 20px;
+    border-top: 2px solid #5cbc87;
+    border-bottom: 2px solid #5cbc87;
 }
 
 .slangNumber {
