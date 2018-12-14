@@ -267,7 +267,8 @@ var listContributions = function() {
                         success: function(data) {
                             console.log(data);
                             $('#contributeLink').trigger('click');
-                            $('#editModal').modal('toggle');
+                            $('#editModal').modal('hide');
+                        
                         },
                         fail: function(status) {
                             console.log(status);

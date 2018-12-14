@@ -60,8 +60,8 @@
         <!-- Slang -->
         <!--TODO on search : total number of results, total unique users, total number of contributions in the search results made by current user (or something else for people not logged in)-->
         <div id="slangPage">
-          <h1 class="colorHeader">All Slang</h1>
             <div id="aggData"><div id="resultsMetadata"></div></div>
+            <h1 class="colorHeader">All Slang</h1><br><br>
             Search:  <input type="text" id="slangSearch"></input> 
             Language: <select id="slangLang"><option value="">Select Language...</option></select>
             Dialect: <input type="text" id="slangDialect">
