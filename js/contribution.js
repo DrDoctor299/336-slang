@@ -5,6 +5,7 @@
 */
 
 $(document).ready(function() {
+    
     $("#contributeButton").on("click" , function() {
         console.log("Button clicked");
         $.ajax({
@@ -37,5 +38,14 @@ $(document).ready(function() {
             
         });
     });
+    
+    // Hide div if no content
+    $("#displayUserContributions").on("DOMSubtreeModified", function() {
+        if($("#displayUserContributions ul").html() != "")
+            $("#displayUserContributions").css("display", "inline-block");
+        else
+            $("#displayUserContributions").css("display", "none");
+    });
+  
     
 });

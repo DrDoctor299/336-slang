@@ -7,7 +7,7 @@
         <!--Jquery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!--bootstrap js and css-->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <!--custom css-->
         <link rel="stylesheet" href = "css/styles.css">
@@ -36,6 +36,21 @@
             <select id="targetLang"></select>
             <select id="dialect"><option value="">Dialect</option><option>Standard</option></select><br>
             <textarea id="targetMessage" disabled="true"></textarea><br>
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      Show Original Translated Text
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                  </div>
+                </div>
+              </div>
+            </div>
             <img src="img/googleCredit.png" alt="Powered by Google Translate" />
           </div>
         </div>
@@ -92,7 +107,7 @@
                 <input id="editTextTwo" type="text" placeholder="Second Language Pair"></input>
                 Language: <select id="editLangTwo"></select>
                 Dialect: <input type="text" id="editDialectTwo" value="Standard"></input><br>
-                <button id="editButton" type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Submit Edit</button>
+                <button id="editButton" type="button" class="btn btn-success btn-lg" data-dismiss="modal">Submit Edit</button>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -113,10 +128,11 @@
           </div>
           <div id="signupPrompt">
             <h2>Don't have an account yet?</h2>
-            <button id="signupButton" type="button" class="btn btn-success btn-lg">Sign Up</button>
+            <button id="signupButton" type="button" class="btn btn-primary btn-lg">Sign Up</button>
           </div>
           <!-- If user clicks signup -->
           <div id="signupDiv">
+            <h1 style="margin-bottom: 20px">Sign Up</h1>
             Username: <br>
             <div id="usernameDiv">
               <div id="usernameErrorMessage">Username Already Exists</div>

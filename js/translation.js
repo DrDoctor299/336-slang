@@ -10,28 +10,35 @@ $(document).ready(function() {
     var updateTranslation = function() {
         var delay = 500;
         var timer;
-        $.ajax({
-                type: "GET",
-                url: "getTranslation.php",
-                dataType: "json",
-                data: {
-                        "message": $.trim($("#sourceMessage").val()).toLowerCase(),
-                        "sourceLang": langMap[$("#sourceLang").val()],
-                        "targetLang": langMap[$("#targetLang").val()],
-                        "dialect": $("#dialect").val().toLowerCase()
-                },
-                      
-                success: function(data, status) {
-                    window.clearTimeout(timer);
-                    timer = window.setTimeout(function () {
-                        $("#targetMessage").val(data.convertedWord.text);
-                        if(!data.matchSuccess) {
+        window.clearTimeout(timer);
+        timer = window.setTimeout(function () {
+            $.ajax({
+                    type: "GET",
+                    url: "getTranslation.php",
+                    dataType: "json",
+                    data: {
+                            "message": $.trim($("#sourceMessage").val()).toLowerCase(),
+                            "sourceLang": langMap[$("#sourceLang").val()],
+                            "targetLang": langMap[$("#targetLang").val()],
+                            "dialect": $("#dialect").val().toLowerCase()
+                    },
+                          
+                    success: function(data, status) {
+                   
+                        // If slang exists
+                        if(data.slangText) {
+                            $("#targetMessage").val(data.slangText);
+                            $("#accordion").show();
+                            $(".card-body").html(data.convertedWord.text);
+                        }
+                        else {
+                            $("#targetMessage").val(data.convertedWord.text);
+                            $("#accordion").hide();
                             // print out slang not found and ask to contribute
                         }
-                    }, delay);
-                    
-                }
-            });
+                    }
+                });
+            }, delay);
     };
     // Populate selectable languages
     $.ajax({
@@ -65,8 +72,8 @@ $(document).ready(function() {
     });
     // Change right textbox as left one changes
     $("#sourceMessage").on("change keyup" ,function() {
-          $("#rightArrow").css("opacity", "");
-        if($("#sourceLang").val() == $("#targetLang").val() && !$("#dialect").val() || !$.trim($("#sourceLang").val())) {
+        $("#rightArrow").css("opacity", "");
+        if($("#sourceLang").val() == $("#targetLang").val() && !$("#dialect").val() && $.trim($("#sourceLang").val()) != "") {
             $("#targetMessage").val($("#sourceMessage").val());
         }
         else {

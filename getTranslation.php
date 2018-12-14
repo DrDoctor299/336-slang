@@ -30,19 +30,21 @@ if(!empty($_GET["dialect"])) {
     $statement->execute(); 
     $records = $statement->fetchAll();
 
-    // If a match
 }
+
+// Get slang text is possible
 if(!empty($records[0])) {
-    $output["matchSuccess"]=true;
     // If message is part of column set one, get the contents of column set two
     if($records[0]["phrase1"]==$_GET["message"] && $records[0]["lang1"] == $_GET["sourceLang"])
-        $output["convertedWord"]["text"] = $records[0]["phrase2"];
+        $output["slangText"] = $records[0]["phrase2"];
     // Else get the opposite
     else
-        $output["convertedWord"]["text"] = $records[0]["phrase1"];
+        $output["slangText"] = $records[0]["phrase1"];    
 }
-// Else fallback to google translate
-else {
+
+
+// Get Google Translate result if not same lang
+if($_GET["sourceLang"] != $_GET["targetLang"]) {
     # Your Google Cloud Platform project ID
     $projectId = 'my-project-1543956958092';
     putenv('GOOGLE_APPLICATION_CREDENTIALS=./credentials/credentials.json');
@@ -50,21 +52,23 @@ else {
     $translate = new TranslateClient([
         'projectId' => $projectId
     ]);
-    
+        
     # The text to translate
     $text = $_GET["message"];
     # The source language
     $source = $_GET["sourceLang"];
     # The target language
     $target = $_GET["targetLang"];
-    
+        
     # Translates the text
     $output["convertedWord"] = $translate->translate($text, [
         'source' => $source,
         'target' => $target
     ]);
-    
 }
-
+// Else output same text
+else {
+    $output["convertedWord"]["text"] = $_GET["message"];
+}
 echo json_encode($output);
 ?>

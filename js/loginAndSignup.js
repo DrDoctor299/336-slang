@@ -87,6 +87,7 @@ $(document).ready(function() {
                         $("#loginLink a").attr("class", "nav-link active")
                     }
                     else {
+                        $("#usernameErrorMessage").html("Username Already Exists");
                         $("#usernameErrorMessage").show();
                     }
                 }
@@ -97,5 +98,9 @@ $(document).ready(function() {
     // Get rid of usernameErrorMessage if user is typing
     $("#signupUsername").on("input", function() {
         $("#usernameErrorMessage").hide();
+    });
+    // Get rid of passwordErrorMessage if user is typing
+    $("#signupPassword").on("input", function() {
+        $("#passwordErrorMessage").hide();
     });
 });

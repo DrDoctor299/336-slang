@@ -1,5 +1,6 @@
 body {
     background-color: #F2f2f2;
+
 }
 
 textarea {
@@ -54,14 +55,18 @@ textarea {
     border-radius: 5px;
     padding: 10px 80px 20px 80px;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 #loginDiv input {
     width: 100%;
 }
 
-.btn-primary {
+
+
+.btn-success {
     width: 100%;
+    background-color: #5cbc87;
 }
 
 #contributeButton {
@@ -135,7 +140,7 @@ a {
 
 .arrowBorder {
     display:inline;
-    color: blue;
+    color: #5cbc87;
     font-weight: bold;
 }
 
@@ -206,7 +211,19 @@ a {
  
  
 .nav-link {
-   
+   font-size: 16px;
+   color: #5cbc87;
+    text-shadow: 1px 2px 2px rgba(0,0,0,0.1),
+                 0px -5px 35px rgba(255,255,255,0.3);
+
+}
+
+#displayUserContributions {
+    display: none;
+}
+
+#accordion {
+    display: none;
 }
 
 /*Neccessary CSS to override css in the 4.0 bootstrap CSS which was breaking the modal*/
