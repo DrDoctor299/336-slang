@@ -55,14 +55,13 @@
             </div>
             <img src="img/googleCredit.png" alt="Powered by Google Translate" />
           </div>
-          <div id="resultsMetadata"></div>
         </div>
         
         <!-- Slang -->
         <!--TODO on search : total number of results, total unique users, total number of contributions in the search results made by current user (or something else for people not logged in)-->
         <div id="slangPage">
           <h1 class="colorHeader">All Slang</h1>
-            <div id="aggData"></div>
+            <div id="aggData"><div id="resultsMetadata"></div></div>
             Search:  <input type="text" id="slangSearch"></input> 
             Language: <select id="slangLang"><option value="">Select Language...</option></select>
             Dialect: <input type="text" id="slangDialect">

@@ -103,8 +103,8 @@ function search() {
                 "<br>With <p class='slangNumber'>" + data["loggedinCount"] + "</p> of our entries being thanks to you!");
             }
             else {
-                $("#resultsMetadata").html("Number of results: " + data["totalResults"] + 
-                "<br>Number of unique contributors in search results: " + data["usersCount"]);
+                $("#resultsMetadata").html("Over <p class='slangNumber'>" + data["totalResults"] + "</p> entries" + 
+                "<br>Contributed by <p class='slangNumber'>" + data["usersCount"] + "</p> members of our community");
             }
             if($("#results").html()!="")
                 $("#results").css("display", "inline-block");

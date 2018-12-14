@@ -221,14 +221,13 @@ a {
     display: none;
 }
 
+#aggData {
+    text-align: center;
+}
+
 #resultsMetadata {
-    position: absolute;
-    top: 90px;
-    right: 20px;
-    text-align: left;
-    margin-bottom: 20px;
+    display: inline-block;
     font-size: 18px;
- 
 }
 
 .slangNumber {
