@@ -12,7 +12,7 @@ function buildSQL($option) {
             $sql = "SELECT T.contributionID, T.username, T.dialect1, T.dialect2, T.phrase1, T.phrase2, T.lang1plaintext, language.language as lang2plaintext FROM 
                         (SELECT contributionID, users.username, language1, language2, dialect1, dialect2, phrase1, phrase2, language.language as lang1plaintext 
                         FROM contributions JOIN `users` ON users.userID = contributions.userID JOIN `language` ON contributions.language1=`language`.`id` 
-                        WHERE phrase1 LIKE '%".$_POST["slang"]."%' OR phrase2 LIKE '%".$_POST["slang"]."%'";    
+                        WHERE (phrase1 LIKE '%".$_POST["slang"]."%' OR phrase2 LIKE '%".$_POST["slang"]."%')";    
         }
         else {
             //if no slang search
@@ -28,7 +28,7 @@ function buildSQL($option) {
             $sql = "SELECT COUNT(`T`.`userID`) AS count FROM 
                         (SELECT contributionID, `users`.`userID`, language1, language2, dialect1, dialect2, phrase1, phrase2, language.language as lang1plaintext 
                         FROM contributions JOIN `users` ON users.userID = contributions.userID JOIN `language` ON contributions.language1=`language`.`id` 
-                        WHERE phrase1 LIKE '%".$_POST["slang"]."%' OR phrase2 LIKE '%".$_POST["slang"]."%'";    
+                        WHERE (phrase1 LIKE '%".$_POST["slang"]."%' OR phrase2 LIKE '%".$_POST["slang"]."%')";    
         }
         else {
             //if no slang search
@@ -45,7 +45,7 @@ function buildSQL($option) {
                         (SELECT `T`.`contributionID`, `T`.`userID` FROM
                             (SELECT contributionID, `users`.`userID`, language1, language2, dialect1, dialect2, phrase1, phrase2, language.language as lang1plaintext 
                             FROM contributions JOIN `users` ON users.userID = contributions.userID JOIN `language` ON contributions.language1=`language`.`id` 
-                            WHERE phrase1 LIKE '%".$_POST["slang"]."%' OR phrase2 LIKE '%".$_POST["slang"]."%'";    
+                            WHERE (phrase1 LIKE '%".$_POST["slang"]."%' OR phrase2 LIKE '%".$_POST["slang"]."%')";    
         }
         else {
             //if no slang search
