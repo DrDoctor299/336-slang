@@ -22,6 +22,11 @@ $(document).ready(function() {
          updateTranslation();
     });
     
+    // Update dialects based on language
+    $("#targetLang").on("change", function() {
+       populateLangs(); 
+    });
+    
     // Emphasize swap button upon hover
     $("#swapArrows").on("mouseover", function() {
          $("#swapArrows").css("opacity", "1");

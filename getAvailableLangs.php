@@ -11,8 +11,10 @@ $sql = "SELECT dialect1 AS dialects
         FROM contributions
         UNION DISTINCT
         SELECT dialect2 
-        FROM contributions";
-            
+        FROM contributions
+        JOIN language ON contributions.language2 = language.id
+        WHERE language.language = '".$_GET["language2"]."';";
+        
 $dbConn = getDatabaseConnection();
 $statement = $dbConn->prepare($sql); 
 $statement->execute(); 

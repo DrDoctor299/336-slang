@@ -8,6 +8,7 @@
 // Stores languages with their language codes
 var langMap = new Array();
 var order = "";
+var langsAreSet = false;
 // General Functions //
 
  // Translate left textbox contents and output to right
@@ -50,6 +51,9 @@ var populateLangs = function() {
         type: "GET",
         url: "getAvailableLangs.php",
         dataType: "json",
+        data: {
+            "language2": $("#targetLang").val()
+        },
         
         success: function(data, status) {
             // Populate language dropdowns
@@ -64,14 +68,19 @@ var populateLangs = function() {
                langMap[val.name] = val.code;
             });
             // Populate slang dropdowns
+            $("#dialect").empty();
+            $("#dialect").append("<option>English</option><option>Standard</option>");
             $.each(data["slangs"], function(index, val) {
                 if(val!="Standard")
                     $("#dialect").append("<option>" + val + "</option>");
             });
-            $("#sourceLang").val("English");
-            $("#targetLang").val("English");
+            if(!langsAreSet) {
+                $("#sourceLang").val("English");
+                $("#targetLang").val("English");
+            }
             $("#contributeLangOne").val("English");
             $("#contributeLangTwo").val("English");
+            langsAreSet = true;
         }
         
     });    
