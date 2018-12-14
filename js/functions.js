@@ -29,7 +29,6 @@ var updateTranslation = function() {
             },
                   
             success: function(data, status) {
-           
                 // If slang exists
                 if(data.slangText) {
                     $("#targetMessage").val(data.slangText);
@@ -39,6 +38,9 @@ var updateTranslation = function() {
                 else {
                     $("#targetMessage").val(data.convertedWord.text);
                     $("#accordion").hide();
+                    $(".mb-0 button").attr("class", "btn btn-link collapsed");
+                    $("#collapseOne").attr("class", "collapse");
+              
                     // print out slang not found and ask to contribute
                 }
             }
