@@ -69,7 +69,7 @@ var populateLangs = function() {
             });
             // Populate slang dropdowns
             $("#dialect").empty();
-            $("#dialect").append("<option>English</option><option>Standard</option>");
+            $("#dialect").append("<option>Dialect</option><option>Standard</option>");
             $.each(data["slangs"], function(index, val) {
                 if(val!="Standard")
                     $("#dialect").append("<option>" + val + "</option>");
