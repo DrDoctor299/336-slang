@@ -12,6 +12,7 @@
         <!--custom css-->
         <link rel="stylesheet" href = "css/styles.css">
         <!--all custom js-->
+        <script language="javascript" type="text/javascript" src="js/functions.js"></script>
         <script language="javascript" type="text/javascript" src="js/navigation.js"></script>
         <script language="javascript" type="text/javascript" src="js/translation.js"></script>
         <script language="javascript" type="text/javascript" src="js/slang.js"></script>
@@ -25,16 +26,17 @@
         <div id="homePage">
           <img id="logo" src="img/logo.png" alt="logo"><br><br>
           <div id="leftSide">
+            <br>
             <select id="sourceLang"></select><br>
-            <textarea id="sourceMessage" maxlength=250></textarea>  
+            <textarea id="sourceMessage" maxlength=250></textarea><br>
           </div>
           <div id="images">
             <img id="rightArrow" src="img/right.png" alt="rightArrow" />
             <img id="swapArrows" src="img/swap.png" alt="swapArrows" />
           </div>
           <div id="rightSide">
-            <select id="targetLang"></select>
             <select id="dialect"><option value="">Dialect</option><option>Standard</option></select><br>
+            <select id="targetLang"></select><br>
             <textarea id="targetMessage" disabled="true"></textarea><br>
             <div id="accordion">
               <div class="card">
@@ -53,27 +55,27 @@
             </div>
             <img src="img/googleCredit.png" alt="Powered by Google Translate" />
           </div>
+          <div id="resultsMetadata"></div>
         </div>
         
         <!-- Slang -->
         <!--TODO on search : total number of results, total unique users, total number of contributions in the search results made by current user (or something else for people not logged in)-->
         <div id="slangPage">
-          <h1 style="margin-bottom: 20px">All Slang</h1>
+          <h1 class="colorHeader">All Slang</h1>
             <div id="aggData"></div>
             Search:  <input type="text" id="slangSearch"></input> 
             Language: <select id="slangLang"><option value="">Select Language...</option></select>
             Dialect: <input type="text" id="slangDialect">
-            </select> <br/>
+            </select><br/>
             ORDER: 
             <input class="slangOrderBy" id="slangByUser" name="order" type="radio"> User
             <input class="slangOrderBy" id="slangByLang" name="order" type="radio"> Language <br/><br/>
-            <div class="contributeBox" id="results"></div><br>
-            <div class="contributeBox" id="resultsMetadata"></div>
+            <div class="contributeBox" id="results" style="text-align: left"></div><br>
         </div>
         
         <!-- Contribute -->
         <div id="contributePage">
-          <h1>Make A Contribution</h1>
+          <h1 class="colorHeader">Make A Contribution</h1><br>
           <div class="contributeBox">
               <input id="contributeTextOne" type="text" placeholder="First Language Pair"></input>
                 Language: <select id="contributeLangOne">
@@ -86,13 +88,12 @@
               Dialect: <input type="text" id="contributeDialectTwo" value="Standard"></input><br>
               <button id="contributeButton" type="button" class="btn btn-success btn-lg">Contribute</button>
           </div> <br>
-          <h2>Your Contributions</h2>
+          <h1 class="display-4">Your Contributions</h1>
           <div class="contributeBox" id="displayUserContributions"></div>
         </div>
         <!--Contributons edit modal-->
         <div id="editModal" class="modal fade" role="dialog">
           <div class="modal-dialog modal-lg">
-        
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
@@ -100,11 +101,11 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
-                <input id="editTextOne" type="text" placeholder="First Language Pair"></input>
+                <input id="editTextOne" type="text" placeholder="First Language Pair" ></input>
                 Language: <select id="editLangOne"></select>
                 Dialect: <input type="text" id="editDialectOne" value="Standard"></input>
                 <br><img id="downArrow" src="img/down.png" alt="downArrow"/><br>
-                <input id="editTextTwo" type="text" placeholder="Second Language Pair"></input>
+                <input id="editTextTwo" type="text" placeholder="Second Language Pair" ></input>
                 Language: <select id="editLangTwo"></select>
                 Dialect: <input type="text" id="editDialectTwo" value="Standard"></input><br>
                 <button id="editButton" type="button" class="btn btn-success btn-lg" data-dismiss="modal">Submit Edit</button>

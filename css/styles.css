@@ -152,11 +152,13 @@ a {
 #leftSide {
     display: inline-block;
     text-align: left;
+
+  
 }
 
 #rightSide {
     text-align: right;
-    vertical-align:top;
+    vertical-align: top;
     display: inline-block;
 }
 
@@ -218,6 +220,49 @@ a {
 #accordion {
     display: none;
 }
+
+#resultsMetadata {
+    position: absolute;
+    top: 90px;
+    right: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 18px;
+ 
+}
+
+.slangNumber {
+    display:inline-block;
+    font-weight: bold;
+    font-size: 24px;
+    color: #5cbc87;
+    font-style: italic;
+	
+
+}
+
+.colorHeader {
+    background-color: #5cbc87; 
+    color: white;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #c5c6c7;
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.slangData {
+    display: inline-block;
+    border: 1px solid #5cbc87;
+    padding: 5px;
+}
+
+.contributeItem {
+    margin-bottom: 15px;
+}
+
 
 /*Neccessary CSS to override css in the 4.0 bootstrap CSS which was breaking the modal*/
 .fade.in {

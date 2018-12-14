@@ -34,8 +34,6 @@ $(document).ready(function() {
                 $("#contributeTextTwo").val("");
                 $('#contributeLink').trigger('click');
            }
-           
-            
         });
     });
     
