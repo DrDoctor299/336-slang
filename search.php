@@ -59,10 +59,10 @@ function buildSQL($option) {
     
     
     if($_POST["lang"] != "") {
-        $sql .= " AND language1 = '".$_POST["lang"]."' OR language2 = '".$_POST["lang"]."'";
+        $sql .= " AND (language1 = '".$_POST["lang"]."' OR language2 = '".$_POST["lang"]."')";
     }
     if($_POST["dialect"] != "") {
-        $sql .= " AND dialect1 = '".$_POST["dialect"]."' OR dialect2 = '".$_POST["dialect"]."'";
+        $sql .= " AND (dialect1 = '".$_POST["dialect"]."' OR dialect2 = '".$_POST["dialect"]."')";
     }
     if($option == "loggedin") {
         $sql .= " AND `users`.`userID` = '".$_SESSION["userID"]."'";
