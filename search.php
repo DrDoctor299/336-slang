@@ -1,10 +1,7 @@
 <?php
-
 session_start();
 include "db/database.php";
 $dbConn = getDatabaseConnection();
-
-
 function buildSQL($option) {
     if($option == "search") {
         if($_POST["slang"] != "") {
@@ -59,10 +56,10 @@ function buildSQL($option) {
     
     
     if($_POST["lang"] != "") {
-        $sql .= " AND language1 = '".$_POST["lang"]."' OR language2 = '".$_POST["lang"]."'";
+        $sql .= " AND (language1 = '".$_POST["lang"]."' OR language2 = '".$_POST["lang"]."')";
     }
     if($_POST["dialect"] != "") {
-        $sql .= " AND dialect1 = '".$_POST["dialect"]."' OR dialect2 = '".$_POST["dialect"]."'";
+        $sql .= " AND (dialect1 = '".$_POST["dialect"]."' OR dialect2 = '".$_POST["dialect"]."')";
     }
     if($option == "loggedin") {
         $sql .= " AND `users`.`userID` = '".$_SESSION["userID"]."'";
@@ -73,7 +70,6 @@ function buildSQL($option) {
     else {
         $sql .= " ORDER BY language1";
     }
-
     
     $sql .= ") AS T JOIN language ON T.language2 = language.id";
     
@@ -83,20 +79,16 @@ function buildSQL($option) {
     
     return $sql;
 }
-
 //query the DB for the search results
 $statement = $dbConn->prepare(buildSQL("search")); 
 $statement->execute(); 
 $records = $statement->fetchAll();
-
 //query the DB for the number of results
 $statement = $dbConn->prepare(buildSQL("count")); 
 $statement->execute(); 
 $countArray = $statement->fetchAll();
-
 //add total results to the returning json object
 $records["totalResults"] = $countArray[0]["count"];
-
 //query the DB for the number of unique users contributing to results
 $statement = $dbConn->prepare(buildSQL("users")); 
 $statement->execute(); 
@@ -104,7 +96,6 @@ $usersArray = $statement->fetchAll();
  
 //add the total number of unique users (usersCount)
 $records["usersCount"] = $usersArray[0]["count"];
-
 //query the DB for the number of contributes from the user (if the user is logged in)
 if(isset($_SESSION["userID"])) {
     $statement = $dbConn->prepare(buildSQL("loggedin")); 
@@ -119,10 +110,7 @@ else {
     //add length property if user is not logged in
     $records["length"] = count($records) - 2;
 }
-
 header('Content-Type: application/json');
 echo json_encode($records);
-
 // echo buildSQL("users");
-
 ?>
