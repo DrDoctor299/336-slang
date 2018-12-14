@@ -47,7 +47,7 @@ if(!empty($records[0])) {
 if($_GET["sourceLang"] != $_GET["targetLang"]) {
     # Your Google Cloud Platform project ID
     $projectId = 'my-project-1543956958092';
-    putenv('GOOGLE_APPLICATION_CREDENTIALS=./credentials/credentials.json');
+    putenv('GOOGLE_APPLICATION_CREDENTIALS=./composer/vendor/google/cred/credentials.json');
     # Instantiates a client
     $translate = new TranslateClient([
         'projectId' => $projectId

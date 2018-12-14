@@ -28,7 +28,7 @@ foreach ($records as $record) {
 
 # Your Google Cloud Platform project ID
 $projectId = 'my-project-1543956958092';
-putenv('GOOGLE_APPLICATION_CREDENTIALS=./credentials/credentials.json');
+putenv('GOOGLE_APPLICATION_CREDENTIALS=./composer/vendor/google/cred/credentials.json');
 
 $translate = new TranslateClient();
 
